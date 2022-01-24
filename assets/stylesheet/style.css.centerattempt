@@ -1,0 +1,57 @@
+header {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 150px;
+    color: #3D315B;
+    /* padding: 0px 0px 100px 0px; */
+    display: flex;
+    order: 2;
+    /* float: left; */
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+header img {
+    /* float: left; */
+    /* display: flex; */
+    order: -1;
+    height: 150px;
+    border-radius: 50%;
+    padding: 0px 10px 0px 50px;
+}
+.subhead h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    font-style: italic;
+    color: #444B6E;
+    /* clear: left; */
+    /* display: flex; */
+    float: left;
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* order: 2; */
+    /* padding: 0px 0px 0px 225px; */
+}
+section {
+    /* font-family: 'Shadows Into Light', cursive; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    font-style: italic;
+    color: #444B6E;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Without this, the center point is based off of the left margin of the section. This brings the point to the center of the element */
+}
+body {
+    background: #239EAB;
+    background: linear-gradient(to right bottom, #239EAB, #74DEEE) fixed;
+    background: -moz-linear-gradient(to right bottom, #239EAB, #74DEEE) fixed;
+    background: -webkit-linear-gradient(to right bottom, #239EAB, #74DEEE) fixed;
+    /* filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#239EAB", endColorstr="#74DEEE", GradientType=1 ); */
+}

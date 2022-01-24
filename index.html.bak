@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Karow</title>
+    <link href="assets/stylesheet/reset.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="assets/stylesheet/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <img src="assets/img/memoji4.png" alt="Joe Karow, but in Memoji form.">
+        <h1>Joe Karow</h1>
+        <h2>Full Stack Developer</h2>
+    </header>
+    <section>
+        <span>Coming soon...</span>
+    </section>
+    <footer> 
+    </footer>
+</body>
+</html>
