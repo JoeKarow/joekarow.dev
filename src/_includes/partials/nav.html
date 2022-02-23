@@ -2,17 +2,17 @@
 				<header id="header">
 					<a href="/">{% include "./logo.njk" %}</a>
 					<nav id="nav">
-                        {{ navlinks | log }}
+                        {# {{ navlinks | log }} #}
                             {# {% if navlinks.items %} #}
                             {{ "nav items true" | log }}
 						    <ul>
                                 {%- for item in navlinks.items %}
                                     {{"loop navitem" | log }}
-                                    <li><a href="{{ item.url }}">{{ item.text}}</a>
+                                    <li><a href="{{ item.url }}" class="{{ item.class }} scrolly">{{ item.text}}</a>
                                         {%- if item.children %}
                                                 {{ "loop subitem" | log }}
                                             <ul>{%- for subitem in item.children %}
-                                                <li><a href="{{ subitem.url }}">{{ subitem.text}}</a>
+                                                <li><a href="{{ subitem.url }}" class="scrolly">{{ subitem.text}}</a>
                                                 {%- endfor %}
                                             </ul>
                                         {%- endif %}

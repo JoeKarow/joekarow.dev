@@ -1,0 +1,17 @@
+---
+projects:
+  - title: Project One
+    desc: This is a project that does stuff and things.
+    screenshot: https://picsum.photos/id/1/1440/900
+    code: https://github.com/JoeKarow
+    live: https://google.com
+  - title: Project Two
+    desc: This project does even more stuff and things.
+    screenshot: https://picsum.photos/id/1025/1440/900
+    code: https://github.com/JoeKarow
+    live: https://images.google.com
+  - title: Project Three
+    desc: This project tests to make sure that this thing alternates sides.
+    screenshot: https://picsum.photos/id/1054/1440/900
+    code: https://github.com/JoeKarow
+    live: https://maps.google.com
