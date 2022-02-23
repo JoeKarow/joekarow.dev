@@ -1,0 +1,17 @@
+---
+items:
+  - text: Menu One
+    url: "#"
+  - text: Menu Two
+    url: "#"
+  - text: Submenu
+    url: "#"
+    children:
+      - text: test 1
+        url: "test1"
+      - text: test 2
+        url: "test2"
+  - text: Menu Three
+    url: "#"
+  - text: Blog
+    url: "/blog"
