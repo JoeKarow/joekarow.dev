@@ -8,11 +8,11 @@ items:
     url: "#"
     children:
       - text: Project 1
-        url: "#One"
+        url: "/#One"
       - text: Project 2
-        url: "#Two"
+        url: "/#Two"
       - text: Project 3
-        url: "#Three"
+        url: "/#Three"
   # - text: Menu Three
   #   url: "#"
   - text: Blog
