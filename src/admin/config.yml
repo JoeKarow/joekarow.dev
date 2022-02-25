@@ -30,23 +30,26 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-  - label: "Projects"
-    name: "projects"
-    editor:
-      preview: false
-    file: "src/_data/projects.yaml"
-    allow_add: false
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Description, name: desc, widget: string }
-      - { label: Screenshot URL, name: screenshot, widget: string }
-      - { label: Source Code URL, name: code, widget: string }
-      - { label: Live Site URL, name: live, widget: string }
   - label: "Settings"
     name: "settings"
     editor:
       preview: false
     files:
+      - label: "Portfolio"
+        name: "portfolio"
+        file: "src/_data/projects.yaml"
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            allow_add: false
+            collapsed: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: desc, widget: string }
+              - { label: Screenshot URL, name: screenshot, widget: string }
+              - { label: Source Code URL, name: code, widget: string }
+              - { label: Live Site URL, name: live, widget: string }
       - label: "Navigation"
         name: "items"
         file: "src/_data/navlinks.yaml"
