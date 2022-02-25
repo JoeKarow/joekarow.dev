@@ -1,4 +1,7 @@
-# My portfolio site
+# JoeKarow.dev - Personal Portfolio Site
+[![Netlify Status](https://api.netlify.com/api/v1/badges/62dec45a-4dd7-40ed-ae99-0531678d3726/deploy-status)](https://app.netlify.com/sites/joekarow/deploys)
+
+
 
 ### Technologies used:
 
