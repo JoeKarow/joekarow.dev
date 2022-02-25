@@ -15,7 +15,7 @@ I've been experimenting with the NEAT stack based off of the [NEAT Starter repo]
 #### So far I've:
 * Integrated a template design from [HTML5up](https://html5up.net/) in to 11ty.
 * Learned how to make git branches, open pull requests, and merge branches.
-* Loops, if statements and a few other things using the Nunjucks templating engine.
+* Loops, if statements and a few other things using the [Nunjucks](https://mozilla.github.io/nunjucks/) templating engine.
 * Modify the Netlify CMS backend to author blog posts, edit the details for the projects section.
 * Cried.
 * Laughed.
