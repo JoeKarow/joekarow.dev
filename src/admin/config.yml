@@ -30,6 +30,18 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
+  - label: "Projects"
+    name: "projects"
+    folder: "src/projects"
+    create: false
+    editor:
+      preview: false
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Screenshot URL, name: screenshot, widget: string }
+      - { label: Source Code URL, name: code, widget: string }
+      - { label: Live Site URL, name: live, widget: string }
+      - { label: Description, name: "body", widget: markdown }
   - label: "Settings"
     name: "settings"
     editor:
