@@ -37,7 +37,7 @@ collections:
     files:
       - label: "Navigation"
         name: "items"
-        file: "src/_data/navigation.yaml"
+        file: "src/_data/navlinks.yaml"
         fields:
           - label: Nav Items
             name: items
