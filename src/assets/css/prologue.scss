@@ -6,7 +6,7 @@
 @import 'libs/html-grid';
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -235,6 +235,7 @@
 		margin: 0 auto;
 		max-width: 100%;
 		width: 1400px;
+		min-height: 100%;
 
 		@include breakpoint('wide') {
 			width: 1200px;
@@ -282,6 +283,10 @@
 			@include html-grid((20px, 20px), 'mobile');
 		}
 	}
+/* Grid - Custom */
+
+
+
 
 /* Sections/Article */
 
@@ -297,6 +302,9 @@
 		.row > & {
 			margin-bottom: 0;
 		}
+	}
+	section {
+		min-height: 100vh;
 	}
 
 /* Image */
@@ -324,6 +332,13 @@
 		&.fit {
 			display: block;
 			width: 100%;
+		}
+
+		&.cover {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			object-fit: cover;
 		}
 
 		&.featured {
@@ -580,6 +595,7 @@
 		text-align: right;
 		top: 0;
 		width: 375px;
+		z-index: 2;
 
 		.top {
 			@include vendor('flex-grow', '1');
@@ -753,14 +769,19 @@
 			}
 
 			&.cover {
-				padding: 10em 0;
+				padding: 10em 0 0 0;
 				background-size: cover;
 				background-position: center center;
 			}
 
 			&.one {
-				background-color: #81918E;
-				background-image: url('../../images/banner.jpg');
+				
+				color: #555;
+				strong {
+					color: #444;
+				}
+				// background-color: #81918E;
+				// background-image: url('../../static/img/banner1.jpeg');
 			}
 
 			&.two {
@@ -820,7 +841,7 @@
 
 				section {
 					&.cover {
-						padding: 5em 0;
+						padding: 5em 0 0 0;
 					}
 				}
 			}
@@ -1071,7 +1092,7 @@
 
 				section {
 					&.cover {
-						padding: 4em 0;
+						padding: 4em 0 0 0;
 					}
 				}
 			}

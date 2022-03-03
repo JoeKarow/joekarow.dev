@@ -1,5 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -210,6 +211,7 @@ br.clear {
   margin: 0 auto;
   max-width: 100%;
   width: 1400px;
+  min-height: 100%;
 }
 
 @media screen and (min-width: 961px) and (max-width: 1880px) {
@@ -1540,6 +1542,7 @@ br.clear {
   }
 }
 
+/* Grid - Custom */
 /* Sections/Article */
 section, article {
   margin-bottom: 3em;
@@ -1553,6 +1556,10 @@ article > .container, article:last-child {
 
 .row > section, .row > article {
   margin-bottom: 0;
+}
+
+section {
+  min-height: 100vh;
 }
 
 /* Image */
@@ -1579,6 +1586,14 @@ article > .container, article:last-child {
 .image.fit {
   display: block;
   width: 100%;
+}
+
+.image.cover {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .image.featured {
@@ -1860,6 +1875,7 @@ button:active,
   text-align: right;
   top: 0;
   width: 375px;
+  z-index: 2;
 }
 
 #header .top {
@@ -2042,14 +2058,17 @@ button:active,
 }
 
 #main > section.cover {
-  padding: 10em 0;
+  padding: 10em 0 0 0;
   background-size: cover;
   background-position: center center;
 }
 
 #main > section.one {
-  background-color: #81918E;
-  background-image: url("../../images/banner.jpg");
+  color: #555;
+}
+
+#main > section.one strong {
+  color: #444;
 }
 
 #main > section.two {
@@ -2091,7 +2110,7 @@ button:active,
     padding: 3em 0;
   }
   #main section.cover {
-    padding: 5em 0;
+    padding: 5em 0 0 0;
   }
 }
 
@@ -2296,7 +2315,7 @@ button:active,
     padding: 3em 0;
   }
   #main section.cover {
-    padding: 4em 0;
+    padding: 4em 0 0 0;
   }
 }
 
