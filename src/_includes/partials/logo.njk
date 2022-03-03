@@ -1,0 +1,5 @@
+{% for logo in logo.logomain %}
+	<span class="image avatar48"><img src="{{ logo.img }}" alt="{{ logo.name }}" /></span>
+	<h1 id="title">{{ logo.name }}</h1>
+	<p>{{ logo.title }}</p>
+{% endfor %}

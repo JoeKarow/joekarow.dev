@@ -1,0 +1,18 @@
+---
+socials:
+  - name: Twitter
+    url: 
+    iconClass: icon brands fa-twitter
+    enabled: true
+  - name: Facebook
+    url: 
+    iconClass: icon brands fa-facebook
+    enabled: false
+  - name: Github
+    url: 
+    iconClass: icon brands fa-github
+    enabled: true
+  - name: Email
+    url: 
+    iconClass: icon solid fa-envelope
+    enabled: true
