@@ -1,6 +1,6 @@
 #top {
   position: relative;
-  opacity: 100%;
+  opacity: 1;
   height: 80vh;
   padding: 0 !important;
 }
@@ -56,7 +56,7 @@
 #top:before {
   content: "";
   position: absolute;
-  background-image: url("/static/img/banner1.jpeg");
+  background-image: url("/static/img/banner2.webp");
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,13 +64,22 @@
   top: 0;
   height: 110vh;
   min-width: 100%;
-  opacity: 0.4;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 #top h2, #top h3, #top strong {
   text-shadow: #888 1px 0 1px;
   font-weight: 400;
-  color: #111 !important;
+  color: #202427 !important;
+}
+
+#top h2, #top strong {
+  line-height: 1.25em;
+}
+
+#top h3 {
+  line-height: 2em;
 }
 
 @media screen and (max-width: 736px) {
@@ -284,7 +293,6 @@
 
 #dev .rightJ {
   float: right;
-  display: inline-block;
 }
 
 @media screen and (max-width: 736px) {
