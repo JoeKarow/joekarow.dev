@@ -6,8 +6,12 @@ items:
     id: top-link
   - text: Freelance
     url: "#freelance"
-    classes: icon solid fa-user
+    classes: icon solid fa-user-ninja btnFreelance
     id: about-link
+  - text: Developer Profile
+    url: "#dev"
+    classes: btnDev icon solid fa-code
+    id: dev-link
   - text: Latest Projects
     url: "#portfolio"
     classes: icon solid fa-th

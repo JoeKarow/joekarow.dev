@@ -93,6 +93,7 @@
 					});
 
 			});
+			
 
 	// Scrolly.
 		$('.scrolly').scrolly();
@@ -121,3 +122,18 @@
 				});
 
 })(jQuery);
+
+const btnDev = document.querySelectorAll('.btnDev');
+const btnFreelance = document.querySelectorAll('.btnFreelance');
+const freelance = document.querySelector('#freelance');
+const dev = document.querySelector('#dev');
+
+
+btnDev.forEach((element) => element.addEventListener('click', function () {
+	dev.classList.add('sectionTwoVisible');
+	freelance.classList.remove('sectionTwoVisible');
+}));
+btnFreelance.forEach((element) => element.addEventListener('click', function () {
+	freelance.classList.add('sectionTwoVisible');
+	dev.classList.remove('sectionTwoVisible');
+}));

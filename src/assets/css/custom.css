@@ -128,7 +128,13 @@
 }
 
 .stack {
-  width: 75%;
+  width: 50%;
+}
+
+@media screen and (max-width: 1320px) {
+  .stack {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -186,7 +192,8 @@
 
 .grid3x .item .details {
   padding: 1rem;
-  background: #fff;
+  background: #ecf1f1;
+  background-image: url("images/overlay.png");
 }
 
 @media screen and (min-width: 1321px) {
@@ -225,5 +232,82 @@
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
+}
+
+.sectionTwo {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  z-index: -10002;
+}
+
+.sectionTwoVisible {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-opacity 0.5s ease-in;
+  transition: -webkit-opacity 0.5s ease-in;
+  -webkit-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in, -webkit-opacity 0.5s ease-in;
+  position: relative;
+  z-index: 0;
+}
+
+#dev span {
+  display: block;
+}
+
+#dev span, #dev ul, #dev li {
+  text-align: left;
+  list-style: none;
+}
+
+#dev img {
+  width: 25%;
+  max-width: 25rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+#dev .rounded {
+  border-radius: 2rem;
+}
+
+#dev .rightJ {
+  float: right;
+  display: inline-block;
+}
+
+@media screen and (max-width: 736px) {
+  #dev .rightJ {
+    display: none;
+  }
+}
+
+#dev p {
+  text-align: justify;
+  padding: 0 2rem;
+}
+
+#dev .centered {
+  text-align: center;
+}
+
+#dev a {
+  border-bottom: none;
+}
+
+#dev a i {
+  padding-top: 3rem;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=custom.css.map */

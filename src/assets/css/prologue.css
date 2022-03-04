@@ -2082,6 +2082,10 @@ button:active,
 #main > section.four {
   background-color: #e8edec;
 }
+#main > section.five {
+  background-color: #ecf1f1;
+}
+
 
 /* Wide */
 @media screen and (min-width: 961px) and (max-width: 1880px) {

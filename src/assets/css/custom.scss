@@ -99,7 +99,10 @@
     line-height: 5rem;
 }
 .stack {
-    width: 75%;
+    width: 50%;
+    @include breakpoint('<=narrow'){
+        width: 75%;
+    }
     @include breakpoint('<=narrower') {
         flex-direction: column;
         a {
@@ -138,7 +141,8 @@
         position:relative;
         .details {
             padding: 1rem;
-            background: #fff;
+            background: #ecf1f1;
+            background-image: url('images/overlay.png');
             @include breakpoint('>narrow') {
                 position: absolute;
                 left: 2.5%;
@@ -163,5 +167,82 @@
 
     @include breakpoint('<=narrow') {
         grid-template-columns: 1fr;
+    }
+}
+
+.sectionTwo {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    // -webkit-transition: -webkit-transform 0.5s ease;
+    // transition: -webkit-transform 0.5s ease;
+    // transition: transform 0.5s ease;
+    // transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    // -webkit-overflow-scrolling: touch;
+    // height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    // max-width: 80%;
+    z-index: -10002;
+}
+ .sectionTwoVisible {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-opacity 0.5s ease-in;
+    transition: -webkit-opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in, -webkit-opacity 0.5s ease-in;
+    position: relative;
+    z-index: 0;
+ }
+
+#dev{
+    span {
+        display:block;
+    }
+    span,ul,li{
+        text-align: left;
+        list-style: none;
+    }
+    img {
+        width: 25%;
+        max-width: 25rem;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
+    .rounded {
+        border-radius: 2rem;
+    }
+    .rightJ {
+        float: right;
+        display:inline-block;
+        @include breakpoint('<=mobile') {
+            display: none;
+            // display: block;  
+        }
+    }
+    .contentDev {
+        // display: flex;
+    }
+    p{
+        text-align: justify;
+        padding: 0 2rem;
+    }
+    .centered {
+        text-align: center;
+    }
+    a{
+        border-bottom: none;
+    }
+    a i{
+        padding-top: 3rem;
+        font-size: 2rem;
     }
 }
