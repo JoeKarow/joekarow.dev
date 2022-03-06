@@ -1,7 +1,7 @@
 backend:
   # Use netlify identity as backend
   name: git-gateway
-  branch: main
+  branch: master
   ### enable below lines for github integration ###
   # name: github
   # repo: surjithctly/neat-starter
@@ -30,41 +30,14 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-  - label: "Projects"
-    name: "projects"
-    folder: "src/projects"
-    create: false
-    editor:
-      preview: false
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Screenshot URL, name: screenshot, widget: string }
-      - { label: Source Code URL, name: code, widget: string }
-      - { label: Live Site URL, name: live, widget: string }
-      - { label: Description, name: "body", widget: markdown }
   - label: "Settings"
     name: "settings"
     editor:
       preview: false
     files:
-      - label: "Portfolio"
-        name: "portfolio"
-        file: "src/_data/projects.yaml"
-        fields:
-          - label: Projects
-            name: projects
-            widget: list
-            allow_add: false
-            collapsed: false
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: desc, widget: string }
-              - { label: Screenshot URL, name: screenshot, widget: string }
-              - { label: Source Code URL, name: code, widget: string }
-              - { label: Live Site URL, name: live, widget: string }
       - label: "Navigation"
         name: "items"
-        file: "src/_data/navlinks.yaml"
+        file: "src/_data/navigation.yaml"
         fields:
           - label: Nav Items
             name: items

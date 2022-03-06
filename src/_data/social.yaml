@@ -1,0 +1,18 @@
+---
+socials:
+  - name: Twitter
+    url: "https://www.twitter.com/JoeKarow/"
+    iconClass: icon brands fa-twitter
+    enabled: true
+  - name: Facebook
+    url: 
+    iconClass: icon brands fa-facebook
+    enabled: false
+  - name: Github
+    url: "https://www.github.com/JoeKarow"
+    iconClass: icon brands fa-github
+    enabled: true
+  - name: Email
+    url: "mailto:hello@joekarow.dev"
+    iconClass: icon solid fa-envelope
+    enabled: true

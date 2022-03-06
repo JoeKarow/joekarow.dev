@@ -1,0 +1,22 @@
+---
+items:
+  - text: Intro
+    url: "#top"
+    classes: icon solid fa-home
+    id: top-link
+  - text: Freelance
+    url: "#freelance"
+    classes: icon solid fa-user-ninja btnFreelance
+    id: about-link
+  - text: Developer Profile
+    url: "#dev"
+    classes: btnDev icon solid fa-code
+    id: dev-link
+  - text: Latest Projects
+    url: "#portfolio"
+    classes: icon solid fa-th
+    id: portfolio-link
+  - text: Contact
+    url: "#contact"
+    classes: icon solid fa-envelope
+    id: contact-link

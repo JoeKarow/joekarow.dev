@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* @import url("prologue.css"); */
 /*Your Custom CSS Goes here*/
 
 h1 {
@@ -18,3 +18,4 @@ body :not(pre) > code[class*="language-"],
 body pre[class*="language-"] {
   @apply bg-gray-800;
 }
+
