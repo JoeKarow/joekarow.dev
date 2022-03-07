@@ -330,4 +330,14 @@
   font-size: 1.1rem;
   margin: 0.5rem;
 }
+
+.next {
+  text-decoration: none;
+  font-size: 2rem;
+  border-bottom: none;
+}
+
+.next i {
+  padding-top: 3rem;
+}
 /*# sourceMappingURL=custom.css.map */
