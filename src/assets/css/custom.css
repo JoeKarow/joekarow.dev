@@ -44,12 +44,35 @@
   }
 }
 
+@media screen and (max-width: 325px) {
+  #top footer.stack a {
+    font-size: 1rem;
+  }
+}
+
+#top header span {
+  display: block;
+}
+
 @media screen and (max-width: 960px) {
-  #top header * {
+  #top header a {
     padding: 0.5rem 0;
   }
-  #top header * br {
-    display: block;
+  #top header span {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  #top header {
+    padding-top: 2rem !important;
+  }
+  #top header h2, #top header h3 {
+    line-height: normal;
+  }
+  #top header span {
+    padding: 0;
+    margin: 0;
   }
 }
 

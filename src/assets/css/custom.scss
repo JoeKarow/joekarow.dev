@@ -5,6 +5,7 @@
 		narrow:    ( 961px,  1320px ),
 		narrower:  ( 737px,  960px  ),
 		mobile:    ( null,   736px  ),
+        smol:      ( null,   325px  ),
 	));
 
 #top { 
@@ -30,12 +31,34 @@
                 margin-top: 25%;
                 padding: 0 1em;
             }
+        @include breakpoint('<=smol'){
+            &.stack {
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
     }
-    header *{
+    header{
+        span {
+            display: block;
+        }
         @include breakpoint('<=narrower') {
-            padding: 0.5rem 0;
-            br{
-                display: block;
+            a {
+                padding: 0.5rem 0;
+            }
+            span{
+                display: inline;
+            }
+        }
+        @include breakpoint('<=smol') {
+            padding-top: 2rem !important;
+            h2,h3 {
+                line-height: normal;
+            }
+            span {
+                padding: 0;
+                margin: 0;
             }
         }
     }
