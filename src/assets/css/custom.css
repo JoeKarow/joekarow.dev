@@ -201,12 +201,13 @@
 
 .grid3x .item .details {
   padding: 1rem;
-  background: #ecf1f1;
+  background: #edf2f2;
   background-image: url("images/overlay.png");
 }
 
 @media screen and (min-width: 1321px) {
   .grid3x .item .details {
+    background: rgba(237, 242, 242, 0.95);
     position: absolute;
     left: 2.5%;
     top: 50%;
@@ -234,6 +235,10 @@
   font-size: 1rem;
   line-height: 1.75rem;
   text-align: start;
+}
+
+.grid3x .item .details p {
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 1320px) {
@@ -317,5 +322,12 @@
 #dev a i {
   padding-top: 3rem;
   font-size: 2rem;
+}
+
+.btnSmall {
+  width: 8rem;
+  padding: 0.5rem 1.0rem;
+  font-size: 1.1rem;
+  margin: 0.5rem;
 }
 /*# sourceMappingURL=custom.css.map */
