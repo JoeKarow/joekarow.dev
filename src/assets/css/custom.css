@@ -1,7 +1,6 @@
 #top {
   position: relative;
   opacity: 1;
-  height: 80vh;
   padding: 0 !important;
 }
 
@@ -19,6 +18,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 80vh;
+  height: 100%;
 }
 
 #top footer {
@@ -76,21 +77,6 @@
   }
 }
 
-#top:before {
-  content: "";
-  position: absolute;
-  background-image: url("/static/img/banner2.webp");
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  left: 0;
-  top: 0;
-  height: 110vh;
-  min-width: 100%;
-  opacity: 0.5;
-  z-index: -1;
-}
-
 #top h2, #top h3, #top strong {
   text-shadow: #888 1px 0 1px;
   font-weight: 400;
@@ -115,6 +101,21 @@
   #top h3 {
     font-size: 1.25em;
   }
+}
+
+#top:before {
+  content: "";
+  position: fixed;
+  background-image: url("/static/img/banner2.webp");
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  min-height: 110vh;
+  min-width: 100%;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 #freelance .bodytext {
