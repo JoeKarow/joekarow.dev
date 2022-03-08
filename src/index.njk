@@ -159,12 +159,16 @@ description: Joe Karow is a full stack software engineer who freelances and is p
 				<h2>Get in touch!</h2>
 			</header>
 			<p>I'm currently accepting new freelance clients, exciting project opportunities, and good vibes.</p>
-			<form name="contact" netlify>
+			<form name="contact"
+						netlify
+						netlify-honeypot="honey"
+						data-netlify="true">
 				<div class="row">
-					<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-					<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+					<div class="col-6 col-12-mobile hidden"><input type="text" name="honey" placeholder="Don't fill this out if you're a real person." /></div>
+					<div class="col-6 col-12-mobile"><input enterkeyhint="next" autocomplete="name" required type="text" name="name" placeholder="Name" /></div>
+					<div class="col-6 col-12-mobile"><input enterkeyhint="next" autocomplete="email" required type="text" name="email" placeholder="Email" /></div>
 					<div class="col-12">
-						<textarea name="message" placeholder="Message"></textarea>
+						<textarea name="message" required placeholder="Message"></textarea>
 					</div>
 					<div class="col-12">
 						<input type="submit" value="Send Message" />

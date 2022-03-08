@@ -364,4 +364,8 @@
 .next i {
   padding-top: 3rem;
 }
+
+.hidden {
+  display: none;
+}
 /*# sourceMappingURL=custom.css.map */
