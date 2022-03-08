@@ -1,7 +1,6 @@
 #top {
   position: relative;
   opacity: 1;
-  height: 80vh;
   padding: 0 !important;
 }
 
@@ -19,6 +18,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 80vh;
+  height: 100%;
 }
 
 #top footer {
@@ -44,28 +45,36 @@
   }
 }
 
-@media screen and (max-width: 960px) {
-  #top header * {
-    padding: 0.5rem 0;
-  }
-  #top header * br {
-    display: block;
+@media screen and (max-width: 325px) {
+  #top footer.stack a {
+    font-size: 1rem;
   }
 }
 
-#top:before {
-  content: "";
-  position: absolute;
-  background-image: url("/static/img/banner2.webp");
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  left: 0;
-  top: 0;
-  height: 110vh;
-  min-width: 100%;
-  opacity: 0.5;
-  z-index: -1;
+#top header span {
+  display: block;
+}
+
+@media screen and (max-width: 960px) {
+  #top header a {
+    padding: 0.5rem 0;
+  }
+  #top header span {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  #top header {
+    padding-top: 2rem !important;
+  }
+  #top header h2, #top header h3 {
+    line-height: normal;
+  }
+  #top header span {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 #top h2, #top h3, #top strong {
@@ -92,6 +101,21 @@
   #top h3 {
     font-size: 1.25em;
   }
+}
+
+#top:before {
+  content: "";
+  position: fixed;
+  background-image: url("/static/img/banner2.webp");
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  min-height: 110vh;
+  min-width: 100%;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 #freelance .bodytext {
@@ -329,5 +353,15 @@
   padding: 0.5rem 1.0rem;
   font-size: 1.1rem;
   margin: 0.5rem;
+}
+
+.next {
+  text-decoration: none;
+  font-size: 2rem;
+  border-bottom: none;
+}
+
+.next i {
+  padding-top: 3rem;
 }
 /*# sourceMappingURL=custom.css.map */

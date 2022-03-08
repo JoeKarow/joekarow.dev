@@ -5,18 +5,21 @@
 		narrow:    ( 961px,  1320px ),
 		narrower:  ( 737px,  960px  ),
 		mobile:    ( null,   736px  ),
+        smol:      ( null,   325px  ),
 	));
 
 #top { 
     position: relative;
     opacity: 1;
-    height: 80vh;
+    // min-height: 100vh;
     padding: 0 !important;
     .container {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
+        min-height: 80vh;
+        height: 100%;
     }
     footer {
         margin: 0 auto;
@@ -30,30 +33,38 @@
                 margin-top: 25%;
                 padding: 0 1em;
             }
-    }
-    header *{
-        @include breakpoint('<=narrower') {
-            padding: 0.5rem 0;
-            br{
-                display: block;
+        @include breakpoint('<=smol'){
+            &.stack {
+                a {
+                    font-size: 1rem;
+                }
             }
         }
     }
-    &:before {
-        content: "";
-        // display: block;
-        position: absolute;
-        background-image: url('/static/img/banner2.webp');
-        background-position: 50% 0;
-        background-repeat: no-repeat;
-        background-size: cover;
-        left: 0;
-        top: 0;
-        height: 110vh;
-        min-width: 100%;
-        opacity: 0.5;
-        z-index: -1;
+    header{
+        span {
+            display: block;
+        }
+        @include breakpoint('<=narrower') {
+            a {
+                padding: 0.5rem 0;
+            }
+            span{
+                display: inline;
+            }
+        }
+        @include breakpoint('<=smol') {
+            padding-top: 2rem !important;
+            h2,h3 {
+                line-height: normal;
+            }
+            span {
+                padding: 0;
+                margin: 0;
+            }
+        }
     }
+
     h2,h3,strong {
         text-shadow: #888 1px 0 1px;
         font-weight: 400;
@@ -75,6 +86,23 @@
         h3 {
             font-size: 1.25em;
         }
+    }
+}
+#top {
+    &:before {
+        content: "";
+        // display: block;
+        position: fixed;
+        background-image: url('/static/img/banner2.webp');
+        background-position: 50% 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        left: 0;
+        top: 0;
+        min-height: 110vh;
+        min-width: 100%;
+        opacity: 0.5;
+        z-index: -1;
     }
 }
 #freelance .bodytext {
@@ -259,4 +287,12 @@
     padding: 0.5rem 1.0rem;
     font-size: 1.1rem;
     margin: 0.5rem;
+}
+.next {
+    text-decoration: none;
+    font-size: 2rem;
+    border-bottom: none;
+    i{
+        padding-top: 3rem;
+    }
 }
