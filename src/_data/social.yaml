@@ -4,10 +4,10 @@ socials:
     url: "https://www.twitter.com/JoeKarow/"
     iconClass: icon brands fa-twitter
     enabled: true
-  - name: Facebook
-    url: 
-    iconClass: icon brands fa-facebook
-    enabled: false
+  - name: LinkedIn
+    url: "https://www.linkedin.com/in/jkarow/"
+    iconClass: icon brands fa-linkedin
+    enabled: true
   - name: Github
     url: "https://www.github.com/JoeKarow"
     iconClass: icon brands fa-github
