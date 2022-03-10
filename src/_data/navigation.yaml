@@ -4,14 +4,14 @@ items:
     url: "#top"
     classes: icon solid fa-home
     id: top-link
-  - text: Freelance Info
+  - text: About Me
+    url: "#about"
+    classes: icon solid fa-code
+    id: dev-link
+  - text: Freelance
     url: "#freelance"
     classes: icon solid fa-user-ninja
     id: about-link
-  - text: About Me
-    url: "#dev"
-    classes: icon solid fa-code
-    id: dev-link
   - text: Latest Projects
     url: "#portfolio"
     classes: icon solid fa-th

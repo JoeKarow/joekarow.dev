@@ -1,3 +1,52 @@
+section {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  min-height: 50vh;
+}
+
+.container h1 {
+  font-size: 2.25em;
+  letter-spacing: -1px;
+}
+
+@media screen and (max-width: 325px) {
+  .container h1 {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .container h2 {
+    font-size: 1.3em;
+  }
+}
+
+.container h3 {
+  font-size: 1.25em;
+  padding: 0.75em 0;
+}
+
+@media screen and (max-width: 325px) {
+  .container h3 {
+    font-size: 1.1em;
+  }
+}
+
 #top {
   position: relative;
   opacity: 1;
@@ -18,8 +67,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 80vh;
-  height: 100%;
 }
 
 #top footer {
@@ -30,6 +77,16 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#top footer .button {
+  min-width: 30rem;
+}
+
+@media screen and (max-width: 960px) {
+  #top footer .button {
+    min-width: 0;
+  }
 }
 
 @media screen and (max-width: 1880px) {
@@ -46,7 +103,7 @@
 }
 
 @media screen and (max-width: 325px) {
-  #top footer.stack a {
+  #top footer a {
     font-size: 1rem;
   }
 }
@@ -65,9 +122,6 @@
 }
 
 @media screen and (max-width: 325px) {
-  #top header {
-    padding-top: 2rem !important;
-  }
   #top header h2, #top header h3 {
     line-height: normal;
   }
@@ -97,9 +151,20 @@
   }
   #top h2 {
     font-size: 1.5em;
+    padding-bottom: 1em;
   }
   #top h3 {
     font-size: 1.25em;
+    line-height: normal;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  #top h2 {
+    font-size: 1.25em;
+  }
+  #top h3 {
+    font-size: 1.00em;
   }
 }
 
@@ -127,6 +192,10 @@
     max-width: 90%;
     margin: 0 auto;
   }
+}
+
+#freelance .bodytext h2, #freelance .bodytext h3 {
+  text-align: center;
 }
 
 .subcontainer {
@@ -255,6 +324,12 @@
   font-size: 2rem;
 }
 
+@media screen and (max-width: 325px) {
+  .grid3x .item .details h3 {
+    font-size: 1.5rem;
+  }
+}
+
 .grid3x .item .details p, .grid3x .item .details li, .grid3x .item .details ul {
   font-size: 1rem;
   line-height: 1.75rem;
@@ -272,78 +347,50 @@
   }
 }
 
-.sectionTwo {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  left: 0;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  opacity: 0;
-  z-index: -10002;
-}
-
-.sectionTwoVisible {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-  opacity: 1;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition: -webkit-opacity 0.5s ease-in;
-  transition: -webkit-opacity 0.5s ease-in;
-  -webkit-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in, -webkit-opacity 0.5s ease-in;
-  position: relative;
-  z-index: 0;
-}
-
-#dev span {
+#about span {
   display: block;
 }
 
-#dev span, #dev ul, #dev li {
+#about span, #about ul, #about li {
   text-align: left;
   list-style: none;
 }
 
-#dev img {
+#about img {
   width: 25%;
   max-width: 25rem;
   margin-left: 2rem;
   margin-bottom: 2rem;
 }
 
-#dev .rounded {
+#about .rounded {
   border-radius: 2rem;
 }
 
-#dev .rightJ {
+#about .rightJ {
   float: right;
 }
 
 @media screen and (max-width: 736px) {
-  #dev .rightJ {
+  #about .rightJ {
     display: none;
   }
 }
 
-#dev p {
+#about p {
   text-align: justify;
   padding: 0 2rem;
 }
 
-#dev .centered {
+#about .centered {
   text-align: center;
 }
 
-#dev a {
+#about a {
   border-bottom: none;
 }
 
-#dev a i {
+#about a i {
   padding-top: 3rem;
   font-size: 2rem;
 }
@@ -367,5 +414,10 @@
 
 .hidden {
   display: none;
+}
+
+.noPadB {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=custom.css.map */
