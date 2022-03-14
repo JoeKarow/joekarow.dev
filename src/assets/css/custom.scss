@@ -152,13 +152,18 @@ section {
         top: 0;
         opacity: 0.5;
         z-index: -100;
-        object-fit: contain;
+        object-fit: cover;
         min-width: 100vh;
         min-height: 100vh;
         width: auto;
         height: auto;
+        @include breakpoint('<=narrow') {
+            transform: translate(-30%, 0);
+        }        
         @include breakpoint('<=narrower') {
-            transform: translate(-50%, 0);
+            transform: translate(-40%, 0);
+        }
+        @include breakpoint('<=mobile') {
             max-height: 100vh;
         }
     }
