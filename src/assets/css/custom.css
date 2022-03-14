@@ -168,19 +168,18 @@ section {
   }
 }
 
-#top:before {
-  content: "";
+#top #video-bg {
   position: fixed;
-  background-image: url("/static/img/banner2.webp");
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  background-size: cover;
   left: 0;
   top: 0;
-  min-height: 110vh;
-  min-width: 100%;
   opacity: 0.5;
-  z-index: -1;
+  z-index: -100;
+  -o-object-fit: contain;
+     object-fit: contain;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 #freelance .bodytext {
