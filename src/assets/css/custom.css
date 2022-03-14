@@ -174,18 +174,30 @@ section {
   top: 0;
   opacity: 0.5;
   z-index: -100;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   min-width: 100vh;
   min-height: 100vh;
   width: auto;
   height: auto;
 }
 
+@media screen and (max-width: 1320px) {
+  #top #video-bg {
+    -webkit-transform: translate(-30%, 0);
+            transform: translate(-30%, 0);
+  }
+}
+
 @media screen and (max-width: 960px) {
   #top #video-bg {
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    -webkit-transform: translate(-40%, 0);
+            transform: translate(-40%, 0);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #top #video-bg {
     max-height: 100vh;
   }
 }
