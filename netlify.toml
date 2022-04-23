@@ -6,10 +6,10 @@ package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
   exclude = [
-    'admin/index.html',
-    'admin',
-    'blog',
-    'reports/lighthouse.html',
+    './admin/index.html',
+    './admin',
+    './blog',
+    './reports/lighthouse.html',
   ]
 [[plugins]]
 package = "@netlify/plugin-lighthouse"
