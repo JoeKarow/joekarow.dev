@@ -6,5 +6,17 @@ package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
   exclude = [
-    './admin/index.html',
+    'admin/index.html',
+    'admin',
+    'blog',
+    'reports/lighthouse.html',
   ]
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+  [plugins.inputs]
+    output_path = 'reports/lighthouse.html'
