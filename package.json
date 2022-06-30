@@ -1,32 +1,36 @@
 {
+  "name": "@joekarow/joekarow.dev",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "start": "npm-run-all --parallel css eleventy browsersync",
-    "startdebug": "npm-run-all --parallel setdebug css eleventy browsersync",
-    "eleventy": "eleventy --watch",
+    "start": "concurrently npm:dev:*",
+    "startdebug": "concurrently 'npm:setdebug' 'npm:css' 'npm:eleventy' 'npm:browsersync'",
+    "dev:browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
+    "dev:css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
+    "dev:eleventy": "eleventy --watch",
     "setdebug": "set DEBUG=*",
-    "debug": "set DEBUG=* & eleventy",
-    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
-    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css",
-    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open"
+    "debug": "DEBUG=* eleventy",
+    "build": "NODE_ENV=production concurrently npm:build:*",
+    "build:eleventy": "eleventy",
+    "build:css": "tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "alpinejs": "^3.7.1",
-    "browser-sync": "^2.27.7",
-    "cross-env": "^7.0.3",
-    "cssnano": "^5.0.15",
-    "html-minifier": "^4.0.0",
-    "js-yaml": "^4.1.0",
-    "luxon": "^2.3.0",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^10.0.0",
-    "prismjs": "^1.26.0",
-    "tailwindcss": "^3.0.13"
+    "@11ty/eleventy": "^1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4",
+    "@tailwindcss/typography": "^0.5",
+    "alpinejs": "^3",
+    "browser-sync": "^2",
+    "concurrently": "^7",
+    "cssnano": "^5",
+    "js-yaml": "^4",
+    "luxon": "^2",
+    "postcss-cli": "^10",
+    "prismjs": "^1",
+    "tailwindcss": "^3"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5"
+    "autoprefixer": "^10",
+    "html-minifier-terser": "^7.0.0-beta.0",
+    "postcss": "^8"
   }
 }
