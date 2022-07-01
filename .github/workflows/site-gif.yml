@@ -1,0 +1,22 @@
+name: Generate demo GIF
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-gif:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Website to GIF
+        uses: PabloLec/website-to-gif@1.0.4
+        with:
+          url: "https://joekarow.dev"
+          save_path: "/docs/img/"
+          gif_name: "screenshot.gif"
+      - name: Commit GIF to GH repo
+        run: |
+          git config --global user.name "PabloLec/website-to-gif"
+          git config --global user.email "action@github.com"
+          git add .
+          git commit -m 'bot: 🤖 Screenshot GIF'
+          git push
