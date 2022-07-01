@@ -12,7 +12,7 @@ jobs:
         with:
           url: "https://joekarow.dev"
           save_path: "/docs/img/"
-          gif_name: "screenshot.gif"
+          gif_name: "screenshot"
       - name: Commit GIF to GH repo
         run: |
           git config --global user.name "PabloLec/website-to-gif"
