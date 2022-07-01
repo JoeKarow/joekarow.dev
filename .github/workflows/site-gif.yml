@@ -5,8 +5,11 @@ on:
 jobs:
   generate-gif:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
+        name: checkout repo
       - name: Website to GIF
         uses: PabloLec/website-to-gif@1.0.4
         with:
@@ -15,8 +18,8 @@ jobs:
           gif_name: "screenshot"
       - name: Commit GIF to GH repo
         run: |
-          git config --global user.name "PabloLec/website-to-gif"
-          git config --global user.email "action@github.com"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add .
           git commit -m 'bot: 🤖 Screenshot GIF'
           git push
