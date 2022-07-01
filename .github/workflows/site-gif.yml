@@ -11,7 +11,7 @@ jobs:
         uses: PabloLec/website-to-gif@1.0.4
         with:
           url: "https://joekarow.dev"
-          save_path: "docs/img/"
+          save_path: "./docs/img/"
           gif_name: "screenshot.gif"
       - name: Commit GIF to GH repo
         run: |
