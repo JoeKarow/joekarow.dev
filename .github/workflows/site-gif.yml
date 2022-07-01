@@ -23,4 +23,4 @@ jobs:
           git checkout -b screenshot
           git add .
           git commit -m 'bot: 🤖 Screenshot GIF'
-          git push
+          git push -u origin screenshot
