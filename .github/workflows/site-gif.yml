@@ -6,7 +6,7 @@ jobs:
   generate-gif:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Website to GIF
         uses: PabloLec/website-to-gif@1.0.4
         with:
