@@ -6,7 +6,7 @@ jobs:
   generate-gif:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         name: checkout repo
@@ -16,11 +16,23 @@ jobs:
           url: "https://joekarow.dev"
           save_path: "/docs/img/"
           gif_name: "screenshot"
-      - name: Commit GIF to GH repo
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git checkout -b screenshot
-          git add .
-          git commit -m 'bot: 🤖 Screenshot GIF'
-          git push -u origin screenshot
+      # - name: Commit GIF to GH repo
+      #   run: |
+      #     git config user.name github-actions
+      #     git config user.email github-actions@github.com
+      #     git checkout -b screenshot
+      #     git add .
+      #     git commit -m 'bot: 🤖 Screenshot GIF'
+      #     git push -u origin screenshot
+      - name: Get current time
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: YYYYMMDDHHMM
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          add-paths: docs/img/*
+          commit-message: "bot: 🤖 Screenshot GIF"
+          branch: "screenshot-${{ steps.current-time.outputs.formattedTime }}"
+          title: "bot: 🤖 Update Screenshot"
