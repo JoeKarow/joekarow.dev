@@ -23,7 +23,7 @@
     "concurrently": "^7",
     "cssnano": "^5",
     "js-yaml": "^4",
-    "luxon": "^2",
+    "luxon": "^3.0.0",
     "postcss-cli": "^10",
     "prismjs": "^1",
     "tailwindcss": "^3"
