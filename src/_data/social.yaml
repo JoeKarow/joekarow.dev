@@ -6,7 +6,7 @@ socials:
     enabled: true
   - name: Mastodon
     url: 'https://mas.to/@JoeKarow'
-    iconClass: icons brands fa-mastodon
+    iconClass: icon brands fa-mastodon
     enabled: true
   - name: LinkedIn
     url: 'https://www.linkedin.com/in/jkarow/'
