@@ -1,17 +1,13 @@
 [build]
-  publish = "_site"
-  command = "yarn build"
+publish = "_site"
+command = "yarn build"
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
-  [plugins.inputs]
-  exclude = [
-    './admin/index.html',
-    './admin',
-    './blog',
-    './reports/lighthouse.html',
-  ]
-[[plugins]]
-package = "@netlify/plugin-lighthouse"
-  [plugins.inputs]
-    output_path = 'reports/lighthouse.html'
+[plugins.inputs]
+exclude = [
+  './admin/index.html',
+  './admin',
+  './blog',
+  './reports/lighthouse.html',
+]
