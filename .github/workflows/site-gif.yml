@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
         name: checkout repo
       - name: Website to GIF
-        uses: PabloLec/website-to-gif@2.0.2
+        uses: PabloLec/website-to-gif@2.1.0
         with:
           url: "https://joekarow.dev"
           save_path: "/docs/img/"
