@@ -15,7 +15,8 @@ jobs:
         with:
           url: "https://joekarow.dev"
           save_path: "/docs/img/"
-          gif_name: "screenshot"
+          file_name: "screenshot"
+          file_format: "WebP"
       # - name: Commit GIF to GH repo
       #   run: |
       #     git config user.name github-actions
