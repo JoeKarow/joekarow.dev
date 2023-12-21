@@ -10,7 +10,7 @@
     "dev:eleventy": "eleventy --watch",
     "setdebug": "set DEBUG=*",
     "debug": "DEBUG=* eleventy",
-    "build": "NODE_ENV=production concurrently npm:build:*",
+    "build": "NODE_ENV=production pnpm build:css && pnpm build:eleventy",
     "build:eleventy": "eleventy",
     "build:css": "tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css"
   },
