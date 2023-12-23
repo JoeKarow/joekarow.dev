@@ -1,89 +1,93 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="en">
-	<head>
-		<title>{{ title }}</title>
-        {% if description %}
-      <meta name="description" content="{{description}}"/>
-    {% endif %}
-    {% block head %}{% endblock %}
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:title" content="Joe Karow - Full Stack Software Engineer" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.joekarow.dev" />
-		<meta property="og:image" content="https://joekarow.dev/static/img/socialcard.webp" />
-		<meta property="og:image:height" content="627" />
-		<meta property="og:image:width" content="1200" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@joekarow" />
-		<meta name="twitter:image" content="https://joekarow.dev/static/img/socialcard.webp" />
+  <head>
+    <title>{{ title }}</title>
+    {% if description %}
+    <meta name="description" content="{{description}}" />
+    {% endif %} {% block head %}{% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      property="og:title"
+      content="Joe Karow - Full Stack Software Engineer"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.joekarow.dev" />
+    <meta
+      property="og:image"
+      content="https://joekarow.dev/static/img/socialcard.webp"
+    />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:width" content="1200" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@joekarow" />
+    <meta
+      name="twitter:image"
+      content="https://joekarow.dev/static/img/socialcard.webp"
+    />
 
-        {# <link rel="stylesheet" href="static/css/style.css"> #}
-		<link rel="stylesheet" type="text/css" href="assets/css/prologue.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+    {#
+    <link rel="stylesheet" href="static/css/style.css" />
+    #}
+    <link rel="stylesheet" type="text/css" href="assets/css/prologue.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <div id="header">
+      <div class="top">
+        <!-- Logo -->
+        <div id="logo">{% include "partials/logo.njk" %}</div>
 
-	</head>
-<body class="is-preload">
+        <!-- Nav -->
+        <nav id="nav">{% include "partials/nav.njk" %}</nav>
+      </div>
 
-		<!-- Header -->
-			<div id="header">
+      <div class="bottom">
+        <!-- Social Icons -->
+        {% include "partials/socials.njk" %}
+      </div>
+    </div>
 
-				<div class="top">
+    {{ content | safe }}
 
-					<!-- Logo -->
-						<div id="logo">
-                            {% include "partials/logo.njk" %}
-						</div>
+    <!-- Footer -->
+    <div id="footer">
+      <!-- Copyright -->
+      <ul class="copyright">
+        <li>&copy; Joe Karow. All rights reserved.</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </div>
 
-					<!-- Nav -->
-						<nav id="nav">
-                            {% include "partials/nav.njk" %}
-						</nav>
-
-				</div>
-
-				<div class="bottom">
-
-					<!-- Social Icons -->
-                    {% include "partials/socials.njk" %}
-
-				</div>
-
-			</div>
-
-            {{ content | safe }}
-
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Joe Karow. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-			</div>
-
-		<!-- Scripts -->
-			{# <script src="assets/js/jquery.min.js"></script> #}
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-
-
-
-
-
-
-
+    <!-- Scripts -->
+    {#
+    <script src="assets/js/jquery.min.js"></script>
+    #}
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          ;(window.vaq = window.vaq || []).push(arguments)
+        }
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+  </body>
 </html>
