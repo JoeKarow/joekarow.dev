@@ -19,7 +19,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@tailwindcss/typography": "^0.5",
     "alpinejs": "^3",
-    "browser-sync": "^2",
+    "browser-sync": "^3.0.0",
     "concurrently": "^8.0.0",
     "cssnano": "^6.0.0",
     "js-yaml": "^4",
