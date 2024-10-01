@@ -15,7 +15,7 @@
     "build:css": "tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
+    "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@tailwindcss/typography": "^0.5",
     "alpinejs": "^3",
