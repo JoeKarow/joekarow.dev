@@ -1,20 +1,20 @@
 [
-    {
-        "description": "InReach app description",
-        "image": "/assets/images/projects/email.ml.png",
-        "name": "InReach App",
-        "url": "./projects/inreach-app"
-    },
-    {
-        "description": "Querying DNS Resolution Results in Different Regions Worldwide.",
-        "image": "/assets/images/projects/dns.surf.png",
-        "name": "DNS.Surf",
-        "url": "https://dns.surf"
-    },
-    {
-        "description": "Web Toolbox.",
-        "image": "/assets/images/projects/html.zone.png",
-        "name": "HTML.ZONE",
-        "url": "https://html.zone"
-    }
+	{
+		"description": "InReach app description",
+		"image": "/assets/images/projects/email.ml.png",
+		"name": "InReach App",
+		"url": "./projects/inreach-app"
+	},
+	{
+		"description": "Querying DNS Resolution Results in Different Regions Worldwide.",
+		"image": "/assets/images/projects/dns.surf.png",
+		"name": "DNS.Surf",
+		"url": "https://dns.surf"
+	},
+	{
+		"description": "Web Toolbox.",
+		"image": "/assets/images/projects/html.zone.png",
+		"name": "HTML.ZONE",
+		"url": "https://html.zone"
+	}
 ]
