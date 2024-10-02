@@ -1,139 +1,175 @@
-/*
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+// Add your javascript here
 
-(function($) {
+window.darkMode = false;
 
-	var	$window = $(window),
-		$body = $('body'),
-		$nav = $('#nav');
+const stickyClasses = ["fixed", "h-14"];
+const unstickyClasses = ["absolute", "h-20"];
+const stickyClassesContainer = [
+	"border-neutral-300/50",
+	"bg-white/80",
+	"dark:border-neutral-600/40",
+	"dark:bg-neutral-900/60",
+	"backdrop-blur-2xl",
+];
+const unstickyClassesContainer = ["border-transparent"];
+let headerElement = null;
 
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '961px',  '1880px' ],
-			normal:    [ '961px',  '1620px' ],
-			narrow:    [ '961px',  '1320px' ],
-			narrower:  [ '737px',  '960px'  ],
-			mobile:    [ null,     '736px'  ]
-		});
+document.addEventListener("DOMContentLoaded", () => {
+	headerElement = document.getElementById("header");
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+	if (
+		localStorage.getItem("dark_mode") &&
+		localStorage.getItem("dark_mode") === "true"
+	) {
+		window.darkMode = true;
+		showNight();
+	} else {
+		showDay();
+	}
+	stickyHeaderFuncionality();
+	applyMenuItemClasses();
+	evaluateHeaderPosition();
+	mobileMenuFunctionality();
+});
 
-	// Nav.
-		var $nav_a = $nav.find('a');
+// window.toggleDarkMode = function(){
+//     document.documentElement.classList.toggle('dark');
+//     if(document.documentElement.classList.contains('dark')){
+//         localStorage.setItem('dark_mode', true);
+//         window.darkMode = true;
+//     } else {
+//         window.darkMode = false;
+//         localStorage.setItem('dark_mode', false);
+//     }
+// }
 
-		$nav_a
-			.addClass('scrolly')
-			.on('click', function(e) {
+window.stickyHeaderFuncionality = () => {
+	window.addEventListener("scroll", () => {
+		evaluateHeaderPosition();
+	});
+};
 
-				var $this = $(this);
+window.evaluateHeaderPosition = () => {
+	if (window.scrollY > 16) {
+		headerElement.firstElementChild.classList.add(...stickyClassesContainer);
+		headerElement.firstElementChild.classList.remove(
+			...unstickyClassesContainer,
+		);
+		headerElement.classList.add(...stickyClasses);
+		headerElement.classList.remove(...unstickyClasses);
+		document.getElementById("menu").classList.add("top-[56px]");
+		document.getElementById("menu").classList.remove("top-[75px]");
+	} else {
+		headerElement.firstElementChild.classList.remove(...stickyClassesContainer);
+		headerElement.firstElementChild.classList.add(...unstickyClassesContainer);
+		headerElement.classList.add(...unstickyClasses);
+		headerElement.classList.remove(...stickyClasses);
+		document.getElementById("menu").classList.remove("top-[56px]");
+		document.getElementById("menu").classList.add("top-[75px]");
+	}
+};
 
-				// External link? Bail.
-					if ($this.attr('href').charAt(0) != '#')
-						return;
+document.getElementById("darkToggle").addEventListener("click", () => {
+	document.documentElement.classList.add("duration-300");
 
-				// Prevent default.
-					e.preventDefault();
+	if (document.documentElement.classList.contains("dark")) {
+		localStorage.removeItem("dark_mode");
+		showDay(true);
+	} else {
+		localStorage.setItem("dark_mode", true);
+		showNight(true);
+	}
+});
 
-				// Deactivate all links.
-					$nav_a.removeClass('active');
+function showDay(animate) {
+	document.getElementById("sun").classList.remove("setting");
+	document.getElementById("moon").classList.remove("rising");
 
-				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-					$this
-						.addClass('active')
-						.addClass('active-locked');
+	let timeout = 0;
 
-			})
-			.each(function() {
+	if (animate) {
+		timeout = 500;
 
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
+		document.getElementById("moon").classList.add("setting");
+	}
 
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
+	setTimeout(() => {
+		document.getElementById("dayText").classList.remove("hidden");
+		document.getElementById("nightText").classList.add("hidden");
 
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
+		document.getElementById("moon").classList.add("hidden");
+		document.getElementById("sun").classList.remove("hidden");
 
-							// Deactivate section.
-								$section.addClass('inactive');
+		if (animate) {
+			document.documentElement.classList.remove("dark");
+			document.getElementById("sun").classList.add("rising");
+		}
+	}, timeout);
+}
 
-						},
-						enter: function() {
+function showNight(animate) {
+	document.getElementById("moon").classList.remove("setting");
+	document.getElementById("sun").classList.remove("rising");
 
-							// Activate section.
-								$section.removeClass('inactive');
+	let timeout = 0;
 
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
+	if (animate) {
+		timeout = 500;
 
-									$nav_a.removeClass('active');
-									$this.addClass('active');
+		document.getElementById("sun").classList.add("setting");
+	}
 
-								}
+	setTimeout(() => {
+		document.getElementById("nightText").classList.remove("hidden");
+		document.getElementById("dayText").classList.add("hidden");
 
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
+		document.getElementById("sun").classList.add("hidden");
+		document.getElementById("moon").classList.remove("hidden");
 
-						}
-					});
+		if (animate) {
+			document.documentElement.classList.add("dark");
+			document.getElementById("moon").classList.add("rising");
+		}
+	}, timeout);
+}
 
-			});
-			
+window.applyMenuItemClasses = () => {
+	const menuItems = document.querySelectorAll("#menu a");
+	for (let i = 0; i < menuItems.length; i++) {
+		if (menuItems[i].pathname === window.location.pathname) {
+			menuItems[i].classList.add("text-neutral-900", "dark:text-white");
+		}
+	}
+	//:class="{ 'text-neutral-900 dark:text-white': window.location.pathname == '{menu.url}', 'text-neutral-700 dark:text-neutral-400': window.location.pathname != '{menu.url}' }"
+};
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+function mobileMenuFunctionality() {
+	document.getElementById("openMenu").addEventListener("click", () => {
+		openMobileMenu();
+	});
 
-	// Header (narrower + mobile).
+	document.getElementById("closeMenu").addEventListener("click", () => {
+		closeMobileMenu();
+	});
+}
 
-		// Toggle.
-			$(
-				'<div id="headerToggle">' +
-					'<a href="#header" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
+window.openMobileMenu = () => {
+	document.getElementById("openMenu").classList.add("hidden");
+	document.getElementById("closeMenu").classList.remove("hidden");
+	document.getElementById("menu").classList.remove("hidden");
+	document.getElementById("mobileMenuBackground").classList.add("opacity-0");
+	document.getElementById("mobileMenuBackground").classList.remove("hidden");
 
-		// Header.
-			$('#header')
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'header-visible'
-				});
+	setTimeout(() => {
+		document
+			.getElementById("mobileMenuBackground")
+			.classList.remove("opacity-0");
+	}, 1);
+};
 
-})(jQuery);
-
-const btnDev = document.querySelectorAll('.btnDev');
-const btnFreelance = document.querySelectorAll('.btnFreelance');
-const freelance = document.querySelector('#freelance');
-const dev = document.querySelector('#dev');
-
-
-btnDev.forEach((element) => element.addEventListener('click', function () {
-	dev.classList.add('sectionTwoVisible');
-	freelance.classList.remove('sectionTwoVisible');
-}));
-btnFreelance.forEach((element) => element.addEventListener('click', function () {
-	freelance.classList.add('sectionTwoVisible');
-	dev.classList.remove('sectionTwoVisible');
-}));
+window.closeMobileMenu = () => {
+	document.getElementById("closeMenu").classList.add("hidden");
+	document.getElementById("openMenu").classList.remove("hidden");
+	document.getElementById("menu").classList.add("hidden");
+	document.getElementById("mobileMenuBackground").classList.add("hidden");
+};

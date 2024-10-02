@@ -1,0 +1,30 @@
+[
+    {
+        "company": "Full Truck Alliance",
+        "dates": "June 2018 · Present",
+        "description": "Responsible for customer service and CRM system front-end development.",
+        "logo": "/assets/images/experiences/fta.ico",
+        "role": "Front-end Engineer"
+    },
+    {
+        "company": "YOHO!",
+        "dates": "July 2015 · June 2018",
+        "description": "Responsible for mobile front-end development of e-commerce platform.",
+        "logo": "/assets/images/experiences/yoho.ico",
+        "role": "Front-end Engineer"
+    },
+    {
+        "company": "WuLian",
+        "dates": "September 2014 · July 2015 ",
+        "description": "Intern, involved in the development of Internet of Things cloud systems.",
+        "logo": "/assets/images/experiences/wulian.ico",
+        "role": "Node.JS Developer"
+    },
+    {
+        "company": "WuLian",
+        "dates": "September 2014 · July 2015 ",
+        "description": "Intern, involved in the development of Internet of Things cloud systems.",
+        "logo": "/assets/images/experiences/wulian.ico",
+        "role": "Node.JS Developer"
+    }
+]

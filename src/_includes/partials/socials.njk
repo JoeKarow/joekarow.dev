@@ -1,7 +1,0 @@
-<ul class="icons">
-    {% for item in social.socials %}
-        {% if item.enabled %}
-        <li><a href="{{ item.url }}" rel="me" class="{{ item.iconClass }}" alt="{{ item.name }}"><span class="label">{{ item.name }}</span></a></li>
-        {% endif %}
-    {% endfor %}
-</ul>
