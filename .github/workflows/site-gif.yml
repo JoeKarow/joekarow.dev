@@ -17,10 +17,10 @@ jobs:
           save_path: "/docs/img/"
           file_name: "screenshot"
           file_format: "WebP"
-      - name: Compress Images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Compress Images
+      #   uses: calibreapp/image-actions@main
+      #   with:
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
       # - name: Commit GIF to GH repo
       #   run: |
       #     git config user.name github-actions
