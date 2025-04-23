@@ -17,13 +17,13 @@ jobs:
           save_path: "/docs/img/"
           file_name: "screenshot"
           file_format: "WebP"
-      - name: Compress Images
-        id: calibre
-        uses: calibreapp/image-actions@main
-        with:
-          ignorePaths: 'node_modules/**,public/**,src/**'
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          compressOnly: true
+      # - name: Compress Images
+      #   id: calibre
+      #   uses: calibreapp/image-actions@main
+      #   with:
+      #     ignorePaths: 'node_modules/**,public/**,src/**'
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
+      #     compressOnly: true
       - name: Get current time
         uses: josStorer/get-current-time@v2
         id: current-time
