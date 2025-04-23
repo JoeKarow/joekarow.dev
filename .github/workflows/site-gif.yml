@@ -10,12 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: checkout repo
-      - name: Cache Docker images.
-        uses: ScribeMD/docker-cache@0.5.0
-        with:
-          key: docker-${{ runner.os }}-${{ hashFiles('./.github/workflows/site-gif.yml') }}
       - name: Website to GIF
-        uses: PabloLec/website-to-gif@2.1.5
+        uses: JoeKarow/website-to-gif@main
         with:
           url: "https://joekarow.dev"
           save_path: "/docs/img/"
@@ -25,6 +21,7 @@ jobs:
         id: calibre
         uses: calibreapp/image-actions@main
         with:
+          ignorePaths: 'node_modules/**,public/**,src/**'
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
       - name: Get current time
