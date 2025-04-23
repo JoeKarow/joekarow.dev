@@ -8,6 +8,10 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - name: Cache Docker images.
+        uses: ScribeMD/docker-cache@0.5.0
+        with:
+          key: docker-${{ runner.os }}-${{ hashFiles('.github/workflows/site-gif.yml') }}
       - uses: actions/checkout@v4
         name: checkout repo
       - name: Website to GIF
