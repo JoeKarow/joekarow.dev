@@ -1,0 +1,39 @@
+---
+import type { HeroProps } from '@types'
+import { Icon } from 'astro-iconify'
+type Props = HeroProps
+
+const { name, specialty, summary, email, socialLinks } = Astro.props
+---
+
+<section class='py-24 md:py-32' id='#hero'>
+	<h1
+		class='mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl'
+	>
+		{name}
+	</h1>
+	<p
+		class='mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl'
+	>
+		{specialty}
+	</p>
+	<p class='mb-16 text-base font-normal text-neutral md:text-lg'>
+		{summary}
+	</p>
+	<div class='inline-flex w-full items-center justify-between'>
+		<a
+			class='inline-flex items-center rounded-full bg-primary px-6 py-4 text-sm leading-5 font-medium text-[#fff]'
+			href={`mailto:${email}`}
+			><Icon name='mdi:email-send-outline' height="2rem" class="pe-2" /> Get in Touch</a
+		>
+		<div class='inline-flex items-center gap-4'>
+			{
+				socialLinks?.map(({ href, text, icon }) => (
+					<a href={href}>
+						<Icon title={text} {...icon} height='2rem' class='' />
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>
