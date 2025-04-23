@@ -3,7 +3,7 @@
 
 <div align='center'>
 
-![Scrolling page preview](docs/img/screenshot.gif)
+![Scrolling page preview](docs/img/screenshot.webp)
 
 </div>
 <br>
