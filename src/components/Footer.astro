@@ -1,0 +1,35 @@
+---
+import type { SiteConfig } from '@types'
+import { Icon } from 'astro-iconify'
+
+type Props = Pick<SiteConfig, 'author' | 'socialLinks'>
+
+const { author, socialLinks } = Astro.props
+const currentYear = new Date().getFullYear()
+---
+
+<footer
+	class='w-full border-t border-neutral/20 px-5 pt-5 pb-8 text-center text-white'
+>
+	<ul class='mb-5 flex flex-wrap justify-center gap-x-5 text-xs'>
+		{
+			socialLinks.map(({ text, href, icon }) => (
+				<li class='relative'>
+					<a
+						href={href}
+						target='_blank'
+						class='inline-flex items-center px-4 py-3 hover:text-primary'
+					>
+						{!!icon && <Icon height='1.5rem' class="px-2" title={text} {...icon} />}
+						{text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<p class='text-xs'>
+		{author} © {currentYear}. <span class='text-neutral'
+			>Designed & Developed by</span
+		> Moisés Machuca
+	</p>
+</footer>

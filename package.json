@@ -1,37 +1,28 @@
 {
-  "name": "@joekarow/joekarow.dev",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "joekarow.dev",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "start": "concurrently npm:dev:*",
-    "startdebug": "concurrently 'npm:setdebug' 'npm:css' 'npm:eleventy' 'npm:browsersync'",
-    "dev:browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
-    "dev:css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
-    "dev:eleventy": "eleventy --watch",
-    "setdebug": "set DEBUG=*",
-    "debug": "DEBUG=* eleventy",
-    "build": "NODE_ENV=production pnpm build:css && pnpm build:eleventy",
-    "build:eleventy": "eleventy",
-    "build:css": "tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@tailwindcss/typography": "^0.5",
-    "alpinejs": "^3",
-    "browser-sync": "^3.0.0",
-    "concurrently": "^8.0.0",
-    "cssnano": "^6.0.0",
-    "js-yaml": "^4",
-    "luxon": "^3.0.0",
-    "postcss-cli": "^11.0.0",
-    "prismjs": "^1",
-    "tailwindcss": "^3"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
-    "autoprefixer": "^10",
-    "html-minifier-terser": "^7.0.0-beta.0",
-    "postcss": "^8"
-  }
+    "@astrojs/check": "^0.9.4",
+    "@fontsource-variable/gabarito": "^5.2.5",
+    "@fontsource/be-vietnam-pro": "^5.2.5",
+    "@tailwindcss/vite": "^4.1.4",
+    "astro": "^5.7.5",
+    "astro-iconify": "^1.2.0",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  },
+  "packageManager": "bun@1.2.10"
 }

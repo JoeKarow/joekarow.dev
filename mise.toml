@@ -1,0 +1,9 @@
+[tools]
+	bun = "1.2.10"
+
+[tasks.dev]
+	run = "bun dev"
+[tasks.build]
+	run = "bun build"
+[tasks.preview]
+	run = "bun preview"
