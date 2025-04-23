@@ -1,5 +1,4 @@
 import type { SiteConfig, SiteContent } from "../types";
-import { Icon } from "astro-iconify";
 export const SITE_CONFIG: SiteConfig = {
   title: "Joe Karow — Full Stack Software Engineer",
   author: "Joe Karow",
