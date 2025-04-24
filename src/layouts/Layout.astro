@@ -5,7 +5,7 @@ import '@fontsource-variable/gabarito'
 import { SITE_CONFIG } from '@config'
 import Footer from '@components/Footer.astro'
 import Analytics from '@vercel/analytics/astro'
-
+import SpeedInsights from '@vercel/speed-insights/astro'
 const {
 	title,
 	description,
@@ -50,5 +50,6 @@ const ogImgUrl = canonicalURL + socialImage
 		</main>
 		<Footer author={author} socialLinks={socialLinks} />
 		<Analytics />
+		<SpeedInsights />
 	</body>
 </html>
