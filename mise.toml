@@ -5,6 +5,6 @@
 [tasks.dev]
 	run = "bun dev"
 [tasks.build]
-	run = "bun build"
+	run = "bun run build"
 [tasks.preview]
 	run = "bun preview"

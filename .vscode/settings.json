@@ -2,5 +2,6 @@
 	"bun.runtime": "/Users/joe/.local/share/mise/shims/bun",
 	"debug.javascript.defaultRuntimeExecutable": {
 		"pwa-node": "/Users/joe/.local/share/mise/shims/node"
-	}
+	},
+	"python.defaultInterpreterPath": "/Users/joe/.local/share/mise/installs/python/3.13.3/bin/python"
 }

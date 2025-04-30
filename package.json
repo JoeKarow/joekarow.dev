@@ -14,10 +14,10 @@
     "@astrojs/vercel": "8.1.4",
     "@fontsource-variable/gabarito": "5.2.5",
     "@fontsource/be-vietnam-pro": "5.2.5",
-    "@tailwindcss/vite": "4.1.4",
+    "@tailwindcss/vite": "4.1.5",
     "@vercel/analytics": "1.5.0",
     "@vercel/speed-insights": "1.2.0",
-    "astro": "5.7.5",
+    "astro": "5.7.10",
     "astro-iconify": "1.2.0",
     "tailwindcss": "4.1.4",
     "typescript": "5.8.3"
