@@ -20,7 +20,9 @@ const currentYear = new Date().getFullYear()
 						target='_blank'
 						class='inline-flex items-center px-4 py-3 hover:text-primary'
 					>
-						{!!icon && <Icon height='1.5rem' class="px-2" title={text} {...icon} />}
+						{!!icon && (
+							<Icon height='1.5rem' class='px-2' title={text} {...icon} />
+						)}
 						{text}
 					</a>
 				</li>

@@ -8,7 +8,7 @@ export default {
 	],
 	tailwindStylesheet: './src/styles/global.css',
 	useTabs: true,
-	tabWidth:2,
+	tabWidth: 2,
 	singleQuote: true,
 	semi: false,
 	quoteProps: 'as-needed',
@@ -21,4 +21,4 @@ export default {
 			},
 		},
 	],
-};
+}

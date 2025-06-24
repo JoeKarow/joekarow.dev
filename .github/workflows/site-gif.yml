@@ -13,10 +13,10 @@ jobs:
       - name: Website to GIF
         uses: JoeKarow/website-to-gif@main
         with:
-          url: "https://joekarow.dev"
-          save_path: "/docs/img/"
-          file_name: "screenshot"
-          file_format: "WebP"
+          url: 'https://joekarow.dev'
+          save_path: '/docs/img/'
+          file_name: 'screenshot'
+          file_format: 'WebP'
       # - name: Compress Images
       #   id: calibre
       #   uses: calibreapp/image-actions@main
@@ -33,6 +33,6 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           add-paths: docs/img/*
-          commit-message: "bot: 🤖 Screenshot GIF"
-          branch: "screenshot-${{ steps.current-time.outputs.formattedTime }}"
-          title: "bot: 🤖 Update Screenshot"
+          commit-message: 'bot: 🤖 Screenshot GIF'
+          branch: 'screenshot-${{ steps.current-time.outputs.formattedTime }}'
+          title: 'bot: 🤖 Update Screenshot'
