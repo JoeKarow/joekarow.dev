@@ -8,3 +8,8 @@
 	run = "bun run build"
 [tasks.preview]
 	run = "bun preview"
+
+[env]
+	_.path = [
+		'{{config_root}}/node_modules/.bin',
+	]
