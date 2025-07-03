@@ -14,9 +14,9 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"incremental": true,
-		"lib": ["DOM", "ES2020"],
-		"target": "ES2020",
-		"module": "ES2020",
+		"lib": ["DOM", "DOM.Iterable", "ES2022"],
+		"target": "ES2022",
+		"module": "ES2022",
 		"moduleResolution": "bundler"
 	}
 }
