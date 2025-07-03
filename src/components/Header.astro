@@ -74,6 +74,7 @@ const { siteLogo, navLinks } = Astro.props
 		(entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
+					console.log('intersecting', entry.target.id)
 					navItems.forEach((item) => {
 						if (item.getAttribute('href') === `#${entry.target.id}`) {
 							item.classList.add('text-white', 'md:after:opacity-100')
@@ -88,6 +89,7 @@ const { siteLogo, navLinks } = Astro.props
 	)
 
 	document.querySelectorAll('section').forEach((section) => {
+		console.log('adding initial observer', section.id)
 		observer.observe(section)
 	})
 
