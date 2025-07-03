@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # vercel cli
 .vercel/
+
+# serena symbol cache
+.serena/cache
+
+# specs
+docs/ai-spec

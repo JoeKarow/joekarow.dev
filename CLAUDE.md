@@ -122,6 +122,41 @@ find_file "*.astro" --relative-path src/components/
 - **Symbols**: [@docs/ai-context/symbol-reference.md](./docs/ai-context/symbol-reference.md)  
 - **Setup**: [@docs/ai-context/setup-guide.md](./docs/ai-context/setup-guide.md)
 
+### Context7 MCP Integration (Documentation Lookup)
+When you need current documentation for project technologies, use Context7 MCP:
+
+#### Primary Tech Stack Documentation
+```bash
+# Astro framework documentation
+resolve-library-id "astro"
+get-library-docs "/withastro/astro" --topic "components"
+
+# TypeScript documentation  
+resolve-library-id "typescript"
+get-library-docs "/microsoft/typescript" --topic "interfaces"
+
+# Tailwind CSS documentation
+resolve-library-id "tailwind"
+get-library-docs "/tailwindlabs/tailwindcss" --topic "utilities"
+
+# Bun runtime documentation
+resolve-library-id "bun"
+get-library-docs "/oven-sh/bun" --topic "cli"
+```
+
+#### When to Use Context7
+- **API Reference**: When you need specific syntax or method signatures
+- **Configuration Options**: For build tools, frameworks, or library setup
+- **Best Practices**: When implementing features following current standards
+- **Troubleshooting**: For resolving framework-specific issues
+- **Migration Guidance**: When updating dependencies or patterns
+
+#### Integration Strategy
+1. **Check memories first** for project-specific patterns
+2. **Use Context7** for current framework documentation
+3. **Cross-reference** with existing codebase patterns
+4. **Implement** following both official docs and project conventions
+
 ### Key Commands (from memory: suggested_commands)
 ```bash
 # Development

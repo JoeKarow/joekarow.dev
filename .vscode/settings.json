@@ -4,5 +4,8 @@
 		"pwa-node": "/Users/joe/.local/share/mise/shims/node"
 	},
 	"python.defaultInterpreterPath": "/Users/joe/.local/share/mise/installs/python/3.13.3/bin/python",
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"files.exclude": {
+		"node_modules/**": true
+	}
 }
