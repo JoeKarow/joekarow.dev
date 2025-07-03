@@ -14,6 +14,7 @@ export interface SocialLinksProps {
 }
 export interface SiteContent {
 	hero: HeroProps
+	skills: SkillsProps
 	experience: ExperienceProps[]
 	projects: ProjectProps[]
 	about: AboutProps
@@ -39,6 +40,8 @@ export interface ProjectProps {
 	name: string
 	summary: string
 	image: string
+	centerImage?:boolean
+	technologies: string[]
 	links?: {
 		href: string
 		text: string
@@ -48,6 +51,14 @@ export interface ProjectProps {
 export interface AboutProps {
 	description: string[]
 	image: string
+}
+
+export interface SkillsProps {
+	title: string
+	categories: {
+		name: string
+		skills: string[]
+	}[]
 }
 
 export interface HeaderProps {
