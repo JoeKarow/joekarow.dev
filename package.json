@@ -11,13 +11,13 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/vercel": "8.2.1",
+		"@astrojs/vercel": "8.2.2",
 		"@fontsource-variable/gabarito": "5.2.6",
 		"@fontsource/be-vietnam-pro": "5.2.6",
 		"@tailwindcss/vite": "4.1.11",
 		"@vercel/analytics": "1.5.0",
 		"@vercel/speed-insights": "1.2.0",
-		"astro": "5.11.0",
+		"astro": "5.11.1",
 		"astro-iconify": "1.2.0",
 		"tailwindcss": "4.1.11",
 		"typescript": "5.8.3"
@@ -26,7 +26,7 @@
 		"@prettier/plugin-oxc": "0.0.4",
 		"prettier": "3.6.2",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.6.13"
+		"prettier-plugin-tailwindcss": "0.6.14"
 	},
 	"packageManager": "bun@1.2.10",
 	"trustedDependencies": [
