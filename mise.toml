@@ -1,6 +1,6 @@
 [tools]
-	bun  = "1.2.20"
-	node = "22.18.0"
+	bun  = "1.2.21"
+	node = "22.19.0"
 
 [tasks.dev]
 	run = "bun dev"
