@@ -14,13 +14,13 @@
 		"@astrojs/vercel": "8.2.8",
 		"@fontsource-variable/gabarito": "5.2.8",
 		"@fontsource/be-vietnam-pro": "5.2.8",
-		"@tailwindcss/vite": "4.1.13",
+		"@tailwindcss/vite": "4.1.14",
 		"@vercel/analytics": "1.5.0",
 		"@vercel/speed-insights": "1.2.0",
 		"astro": "5.14.1",
 		"astro-iconify": "1.2.0",
-		"tailwindcss": "4.1.13",
-		"typescript": "5.9.2"
+		"tailwindcss": "4.1.14",
+		"typescript": "5.9.3"
 	},
 	"devDependencies": {
 		"@prettier/plugin-oxc": "0.0.4",
