@@ -31,5 +31,8 @@
 	"packageManager": "bun@1.2.10",
 	"trustedDependencies": [
 		"@vercel/speed-insights"
-	]
+	],
+	"overrides": {
+		"vite": "^6.4.1"
+	}
 }
