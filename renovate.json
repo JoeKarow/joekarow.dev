@@ -1,3 +1,11 @@
 {
-	"extends": ["github>JoeKarow/renovate-config"]
+	"extends": ["github>JoeKarow/renovate-config"],
+	"packageRules": [
+		{
+			"description": "Do not pin versions in npm overrides",
+			"matchDepTypes": ["overrides"],
+			"matchUpdateTypes": ["pin"],
+			"enabled": false
+		}
+	]
 }
