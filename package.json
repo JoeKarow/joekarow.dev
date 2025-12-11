@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.6",
-		"@astrojs/vercel": "8.2.11",
+		"@astrojs/vercel": "9.0.2",
 		"@fontsource-variable/gabarito": "5.2.8",
 		"@fontsource/be-vietnam-pro": "5.2.8",
 		"@tailwindcss/vite": "4.1.17",
