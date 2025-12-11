@@ -30,7 +30,7 @@ jobs:
         with:
           format: YYYYMMDDHHMM
       - name: Create PR
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: docs/img/*
           commit-message: 'bot: 🤖 Screenshot GIF'
