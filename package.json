@@ -33,6 +33,6 @@
 		"@vercel/speed-insights"
 	],
 	"overrides": {
-		"vite": "^6.4.1"
+		"vite": "^7.0.0"
 	}
 }
