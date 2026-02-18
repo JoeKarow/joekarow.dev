@@ -57,8 +57,8 @@ export const SITE_CONTENT: SiteContent = {
 					'Next.js',
 					'Node.js',
 					'HTML',
-					'CSS'
-				]
+					'CSS',
+				],
 			},
 			{
 				name: 'Databases & Tools',
@@ -70,8 +70,8 @@ export const SITE_CONTENT: SiteContent = {
 					'CI/CD',
 					'Web Accessibility',
 					'Git',
-					'RESTful APIs'
-				]
+					'RESTful APIs',
+				],
 			},
 			{
 				name: 'Development Focus',
@@ -79,10 +79,10 @@ export const SITE_CONTENT: SiteContent = {
 					'Full-stack web applications',
 					'Mobile app development',
 					'Data integration & automation',
-					'Process optimization'
-				]
-			}
-		]
+					'Process optimization',
+				],
+			},
+		],
 	},
 	experience: [
 		{
@@ -126,7 +126,14 @@ export const SITE_CONTENT: SiteContent = {
 			name: 'InReach App',
 			summary:
 				'InReach is the world’s first open source verified LGBTQ+ resource platform.',
-			technologies: ['JavaScript/TypeScript', 'React', 'Next.js', 'Node.js', 'PostgreSQL', 'CI/CD'],
+			technologies: [
+				'JavaScript/TypeScript',
+				'React',
+				'Next.js',
+				'Node.js',
+				'PostgreSQL',
+				'CI/CD',
+			],
 
 			links: [
 				{ href: 'https://app.inreach.org', text: 'Live App' },
@@ -136,36 +143,51 @@ export const SITE_CONTENT: SiteContent = {
 		},
 		{
 			name: 'VirtualCoffee.io',
-			summary: 'Contributed calendar integration and TypeScript migration features to Virtual Coffee open source community platform.',
+			summary:
+				'Contributed calendar integration and TypeScript migration features to Virtual Coffee open source community platform.',
 			technologies: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'MDX'],
 			links: [
-				{ href: 'https://github.com/Virtual-Coffee/virtualcoffee.io/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow', text: 'View Contributions' },
-				{ href: 'https://virtualcoffee.io/', text: 'Virtual Coffee' }
+				{
+					href: 'https://github.com/Virtual-Coffee/virtualcoffee.io/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow',
+					text: 'View Contributions',
+				},
+				{ href: 'https://virtualcoffee.io/', text: 'Virtual Coffee' },
 			],
 			image: '/virtualcoffee-project.png',
-			centerImage: true
+			centerImage: true,
 		},
 		{
 			name: '1Password CLI Plugins',
-			summary: 'Contributed 1Password CLI plugins for PostgreSQL, Crowdin, and Sentry CLI integration.',
+			summary:
+				'Contributed 1Password CLI plugins for PostgreSQL, Crowdin, and Sentry CLI integration.',
 			technologies: ['Go', 'CLI Development', 'PostgreSQL', 'REST APIs'],
 			links: [
-				{ href: 'https://github.com/1Password/shell-plugins/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow', text: 'View Contributions' },
-				{ href: 'https://github.com/1Password/shell-plugins', text: '1Password Shell Plugins' }
+				{
+					href: 'https://github.com/1Password/shell-plugins/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow',
+					text: 'View Contributions',
+				},
+				{
+					href: 'https://github.com/1Password/shell-plugins',
+					text: '1Password Shell Plugins',
+				},
 			],
 			image: '/onepassword-project.png',
-			centerImage: true
+			centerImage: true,
 		},
 		{
 			name: 'Civic Tech DC',
-			summary: 'Open source contributor to Civic Tech DC projects focused on civic engagement and government transparency tools.',
+			summary:
+				'Open source contributor to Civic Tech DC projects focused on civic engagement and government transparency tools.',
 			technologies: ['Python', 'CLI Development', 'Civic APIs', 'GUI Planning'],
 			links: [
-				{ href: 'https://github.com/civictechdc/mango-tango-cli/issues?q=sort:updated-desc%20is:pr%20author:JoeKarow', text: 'View Contributions' },
-				{ href: 'https://civictechdc.org/', text: 'Civic Tech DC' }
+				{
+					href: 'https://github.com/civictechdc/mango-tango-cli/issues?q=sort:updated-desc%20is:pr%20author:JoeKarow',
+					text: 'View Contributions',
+				},
+				{ href: 'https://civictechdc.org/', text: 'Civic Tech DC' },
 			],
 			image: '/civictechdc-project.png',
-			centerImage: true
+			centerImage: true,
 		},
 	],
 	about: {

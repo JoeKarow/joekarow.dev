@@ -11,19 +11,19 @@ const { skills } = Astro.props
 
 <Section text={skills.title} href='skills'>
 	<div class='grid gap-6 md:grid-cols-3'>
-		{skills.categories.map((category) => (
-			<div class='space-y-3'>
-				<h3 class='text-lg font-semibold text-white'>
-					{category.name}
-				</h3>
-				<div class='flex flex-wrap gap-2'>
-					{category.skills.map((skill) => (
-						<span class='inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200'>
-							{skill}
-						</span>
-					))}
+		{
+			skills.categories.map((category) => (
+				<div class='space-y-3'>
+					<h3 class='text-lg font-semibold text-white'>{category.name}</h3>
+					<div class='flex flex-wrap gap-2'>
+						{category.skills.map((skill) => (
+							<span class='inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200'>
+								{skill}
+							</span>
+						))}
+					</div>
 				</div>
-			</div>
-		))}
+			))
+		}
 	</div>
 </Section>
