@@ -1,0 +1,29 @@
+{
+	"enabledPlugins": {
+		"frontend-design@claude-plugins-official": true
+	},
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Edit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "FILE_PATH=$(jq -r '.tool_input.file_path' < /dev/stdin) && bunx prettier --write \"$FILE_PATH\""
+					}
+				]
+			}
+		],
+		"PreToolUse": [
+			{
+				"matcher": "Edit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "FILE_PATH=$(jq -r '.tool_input.file_path' < /dev/stdin) && if echo \"$FILE_PATH\" | grep -qE '(bun\\.lock|package-lock\\.json)$'; then echo 'BLOCK: Lock files should only change via package manager' >&2; exit 2; fi"
+					}
+				]
+			}
+		]
+	}
+}

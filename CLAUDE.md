@@ -1,239 +1,57 @@
-# Claude Code Development Guide
+# CLAUDE.md
 
-**Essential**: Always start Claude Code sessions with "Read the initial instructions"
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Context
+## Commands
 
-**JoeKarow.dev** is a personal portfolio website built with Astro, TypeScript, and Tailwind CSS. The site showcases professional experience, featured projects, and personal information through a modern, performant static site architecture.
+- `bun dev` — Start dev server
+- `bun run build` — Type-check (`astro check`) then build
+- `bun preview` — Preview production build
+- `bun run format` — Format all files with Prettier
+- `bun run lint` — Check formatting and run type-checking
+- `bunx prettier --write <file>` — Format a single file
 
-**Quick Reference**: [@docs/ai-context/README.md](./docs/ai-context/README.md)
+No test suite is configured.
 
-## Session Initialization
+## Architecture
 
-### 1. Start Every Session
-```
-Read the initial instructions
-```
-This activates Serena MCP integration and loads semantic understanding of the codebase.
+Single-page Astro 5 portfolio site deployed to Vercel. One route (`/`), no content collections, no client-side framework.
 
-### 2. Verify Serena Setup
-After initial instructions, Serena provides:
-- Semantic code analysis capabilities
-- Memory system with project insights
-- Symbol-level understanding tools
+### Data flow
 
-## Serena MCP Integration
+All site content lives in `src/config/index.ts` as typed TypeScript objects (`SITE_CONFIG` for metadata/nav, `SITE_CONTENT` for page sections). `src/pages/index.astro` imports these and spreads them as props into section components. To update any content, edit `src/config/index.ts`.
 
-### Memory System
-Serena automatically created memories in `.serena/memories/`:
-- **project_overview**: High-level project summary and purpose
-- **tech_stack_details**: Complete technology stack information
-- **code_structure**: File organization and component relationships  
-- **code_style_conventions**: Formatting rules and coding standards
-- **suggested_commands**: Essential development commands
-- **task_completion_checklist**: Quality assurance steps
+### Components
 
-### Access Memories
-```bash
-# List available memories
-list_memories
+All components are pure `.astro` files in `src/components/`. Each declares typed props (interfaces from `src/types/index.ts`) and uses Tailwind classes directly. `Section.astro` is a reusable wrapper used by every content section. There is no React, Vue, or other UI framework.
 
-# Read specific memory
-read_memory "project_overview"
-```
+### Layout
 
-### Semantic Analysis Tools
+Single layout at `src/layouts/Layout.astro` — handles the HTML shell, meta tags, fonts, header, footer, and Vercel analytics. It reads config directly from `@config` (not via props).
 
-#### Symbol Discovery
-```bash
-# Find configuration constants
-find_symbol "SITE_CONFIG" --relative-path src/config/index.ts --include-body
+## Path Aliases
 
-# Get TypeScript interfaces overview
-get_symbols_overview src/types/
+Always use these (defined in `tsconfig.json`):
 
-# Find component props
-find_symbol "HeroProps" --relative-path src/types/index.ts --include-body
-```
+- `@components/*` → `src/components/*`
+- `@layouts/*` → `src/layouts/*`
+- `@icons/*` → `src/icons/*`
+- `@types` → `src/types/index.ts`
+- `@config` → `src/config/index.ts`
 
-#### Cross-Reference Analysis
-```bash  
-# Find where SITE_CONFIG is used
-find_referencing_symbols "SITE_CONFIG" --relative-path src/config/index.ts
+## Styling
 
-# Search for component patterns
-search_for_pattern "interface.*Props" --include-glob "*.ts"
-```
+Tailwind CSS v4 via `@tailwindcss/vite` plugin (not PostCSS). All design tokens (colors, fonts, animations) are defined in `src/styles/global.css` using the `@theme` block. No separate Tailwind config file.
 
-#### Code Structure Exploration
-```bash
-# Directory overview
-get_symbols_overview src/components/
+Key tokens: `--color-primary` (blue), `--color-black` (dark bg), `--color-white` (off-white text), `--color-neutral` (slate). Fonts: Be Vietnam Pro (sans), Gabarito Variable (serif/headings).
 
-# Find specific components
-find_file "*.astro" --relative-path src/components/
-```
+## Formatting
 
-## Development Guidelines
+Prettier with tabs, single quotes, no semicolons. Plugins: `@prettier/plugin-oxc`, `prettier-plugin-astro`, `prettier-plugin-tailwindcss`. Tailwind class sorting uses `src/styles/global.css` as the stylesheet reference.
 
-### Session Startup Workflow
-1. **Always**: "Read the initial instructions"
-2. **Review**: Current task context with `read_memory` if needed
-3. **Understand**: Use `get_symbols_overview` for code exploration
-4. **Plan**: Use TodoWrite for complex tasks
-5. **Implement**: Use symbol-level tools for precise changes
+## Tooling
 
-### Tool Usage Patterns
-
-#### For New Features
-1. `get_symbols_overview` to understand existing structure
-2. `find_symbol` to examine related components
-3. `find_referencing_symbols` to understand dependencies
-4. Use symbol editing tools for clean implementation
-
-#### For Bug Fixes
-1. `search_for_pattern` to locate issue area
-2. `find_symbol` to examine specific functions/components
-3. `find_referencing_symbols` to assess impact
-4. Use regex editing for targeted fixes
-
-#### For Refactoring
-1. `find_referencing_symbols` to map all usages
-2. Plan changes with TodoWrite
-3. Use symbol replacement tools for consistency
-4. Validate with `find_referencing_symbols` after changes
-
-### Context Management
-
-#### Smart Context Loading
-- Use `@docs/ai-context/README.md` for project overview
-- Reference specific memories for detailed information
-- Use symbol tools to load only necessary code sections
-
-#### Avoid Context Waste
-- Don't read entire files unless absolutely necessary
-- Use symbol-level understanding instead of full file reads
-- Reference existing memories rather than re-analyzing
-
-## Reference Documentation
-
-### Quick Access
-- **Architecture**: [@docs/ai-context/architecture-overview.md](./docs/ai-context/architecture-overview.md)
-- **Symbols**: [@docs/ai-context/symbol-reference.md](./docs/ai-context/symbol-reference.md)  
-- **Setup**: [@docs/ai-context/setup-guide.md](./docs/ai-context/setup-guide.md)
-
-### Context7 MCP Integration (Documentation Lookup)
-When you need current documentation for project technologies, use Context7 MCP:
-
-#### Primary Tech Stack Documentation
-```bash
-# Astro framework documentation
-resolve-library-id "astro"
-get-library-docs "/withastro/astro" --topic "components"
-
-# TypeScript documentation  
-resolve-library-id "typescript"
-get-library-docs "/microsoft/typescript" --topic "interfaces"
-
-# Tailwind CSS documentation
-resolve-library-id "tailwind"
-get-library-docs "/tailwindlabs/tailwindcss" --topic "utilities"
-
-# Bun runtime documentation
-resolve-library-id "bun"
-get-library-docs "/oven-sh/bun" --topic "cli"
-```
-
-#### When to Use Context7
-- **API Reference**: When you need specific syntax or method signatures
-- **Configuration Options**: For build tools, frameworks, or library setup
-- **Best Practices**: When implementing features following current standards
-- **Troubleshooting**: For resolving framework-specific issues
-- **Migration Guidance**: When updating dependencies or patterns
-
-#### Integration Strategy
-1. **Check memories first** for project-specific patterns
-2. **Use Context7** for current framework documentation
-3. **Cross-reference** with existing codebase patterns
-4. **Implement** following both official docs and project conventions
-
-### Key Commands (from memory: suggested_commands)
-```bash
-# Development
-bun run dev          # Start development server
-bun run build        # Build with type checking
-bun run preview      # Preview production build
-
-# Quality Checks  
-bunx astro check     # TypeScript validation
-bunx prettier --write .  # Code formatting
-```
-
-### Essential File Locations
-- **Configuration**: `src/config/index.ts` (SITE_CONFIG, SITE_CONTENT)
-- **Types**: `src/types/index.ts` (all interfaces)
-- **Components**: `src/components/` (.astro components)
-- **Main Page**: `src/pages/index.astro`
-- **Layout**: `src/layouts/Layout.astro`
-
-## Task Completion Standards
-
-### Before Committing (from memory: task_completion_checklist)
-- [ ] Run `bun run build` (includes type checking)
-- [ ] Verify all new components have TypeScript interfaces
-- [ ] Ensure path aliases are used correctly
-- [ ] Apply Prettier formatting
-- [ ] Test development server functionality
-
-### Component Development
-- [ ] Add props interface to `src/types/index.ts`
-- [ ] Use semantic HTML and Tailwind classes
-- [ ] Ensure responsive design
-- [ ] Maintain accessibility standards
-
-## Symbol-Level Navigation
-
-### Component Props System
-```typescript
-// All component props defined in src/types/index.ts
-interface HeroProps { /* ... */ }
-interface AboutProps { /* ... */ }
-interface ExperienceProps { /* ... */ }
-interface ProjectProps { /* ... */ }
-```
-
-### Configuration System
-```typescript
-// src/config/index.ts:1-32
-const SITE_CONFIG: SiteConfig = {
-  title: 'Joe Karow — Full Stack Software Engineer',
-  // ... complete configuration
-}
-```
-
-### Path Aliases (tsconfig.json)
-```typescript
-import Header from '@components/Header.astro'
-import { SITE_CONFIG } from '@config'
-import type { HeroProps } from '@types'
-```
-
-## Serena Best Practices
-
-### Efficient Symbol Usage
-1. **Overview First**: Use `get_symbols_overview` before deep dives
-2. **Targeted Reading**: Use `find_symbol` with `include_body=true` only when needed
-3. **Cross-Reference**: Use `find_referencing_symbols` to understand impact
-4. **Pattern Search**: Use `search_for_pattern` for flexible discovery
-
-### Memory Integration
-- Reference memories for context instead of re-analyzing
-- Update memories when making significant architectural changes
-- Use memory system to maintain session continuity
-
-### Quality Assurance
-- Always run `bun run build` before completing tasks
-- Use symbol tools to verify changes don't break references
-- Reference task completion checklist memory for consistency
-
-This guide ensures optimal use of Claude Code with Serena MCP for efficient, high-quality development on the JoeKarow.dev project.
+- **Package manager**: Bun (pinned in `package.json` and `mise.toml`)
+- **Runtime versions**: Managed by mise (`bun 1.3.9`, `node 22.22.0`)
+- **Dependency pinning**: `bunfig.toml` sets `exact = true` — no version ranges
+- **Dependency updates**: Renovate (config extends `github>JoeKarow/renovate-config`)
