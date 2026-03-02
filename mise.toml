@@ -1,5 +1,5 @@
 [tools]
-	bun  = "1.3.9"
+	bun  = "1.3.10"
 	node = "22.22.0"
 
 [tasks.dev]
