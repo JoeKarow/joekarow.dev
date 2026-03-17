@@ -13,7 +13,10 @@ const { projects } = Astro.props
 <Section text='Featured Work & Contributions' href='projects'>
 	{
 		projects.map(
-			({ name, summary, image, links, technologies, centerImage }, index) => {
+			(
+				{ name, summary, image, imageAlt, links, technologies, centerImage },
+				index,
+			) => {
 				const top = 98 + index * 40
 
 				return (
@@ -21,7 +24,7 @@ const { projects } = Astro.props
 						style={`top: ${top}px;`}
 						class='sticky mb-12 rounded-2xl border border-neutral/20 bg-black'
 					>
-						<div class="bg-difu relative z-[1] grid h-[680px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+						<div class="bg-difu relative z-[1] grid h-auto w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
 							<div class='px-6 pt-12'>
 								<h3 class='mb-5 font-serif text-3xl font-medium text-primary'>
 									{name}
@@ -31,7 +34,7 @@ const { projects } = Astro.props
 									<div class='mt-2'>
 										<div class='flex flex-wrap gap-1'>
 											{technologies.map((tech) => (
-												<span class='inline-block rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-200'>
+												<span class='inline-block rounded bg-white/10 px-2 py-1 text-xs font-medium text-white'>
 													{tech}
 												</span>
 											))}
@@ -43,9 +46,11 @@ const { projects } = Astro.props
 										<a
 											href={href}
 											target='_blank'
+											rel='noopener noreferrer'
 											class='after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline'
 										>
 											{text}
+											<span class='sr-only'>(opens in new tab)</span>
 										</a>
 									))}
 								</div>
@@ -54,7 +59,7 @@ const { projects } = Astro.props
 								<Image
 									class={`h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none ${centerImage ? 'object-center' : 'object-left-top'} sm:h-[85%] sm:w-full`}
 									src={image}
-									alt={name}
+									alt={imageAlt ?? name}
 									width='736'
 									height='483'
 								/>

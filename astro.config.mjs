@@ -8,6 +8,9 @@ import vercel from '@astrojs/vercel'
 export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
+		server: {
+			allowedHosts: true,
+		},
 	},
 
 	site: 'https://joekarow.dev',
