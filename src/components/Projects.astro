@@ -31,7 +31,7 @@ const { projects } = Astro.props
 									<div class='mt-2'>
 										<div class='flex flex-wrap gap-1'>
 											{technologies.map((tech) => (
-												<span class='inline-block rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-200'>
+												<span class='inline-block rounded bg-white/10 px-2 py-1 text-xs font-medium text-white'>
 													{tech}
 												</span>
 											))}
@@ -43,9 +43,11 @@ const { projects } = Astro.props
 										<a
 											href={href}
 											target='_blank'
+											rel='noopener noreferrer'
 											class='after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline'
 										>
 											{text}
+											<span class='sr-only'>(opens in new tab)</span>
 										</a>
 									))}
 								</div>

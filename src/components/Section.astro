@@ -7,8 +7,9 @@ interface Props {
 const { text, href } = Astro.props
 ---
 
-<section id={href} class='py-24'>
+<section id={href} class='py-24' aria-labelledby={`${href}-heading`}>
 	<h2
+		id={`${href}-heading`}
 		class='mb-14 font-serif text-4xl font-bold tracking-tighter text-white md:text-5xl'
 	>
 		{text}

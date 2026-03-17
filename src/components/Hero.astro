@@ -6,8 +6,9 @@ type Props = HeroProps
 const { name, specialty, summary, email, socialLinks } = Astro.props
 ---
 
-<section class='py-24 md:py-32' id='#hero'>
+<section class='py-24 md:py-32' id='hero' aria-labelledby='hero-heading'>
 	<h1
+		id='hero-heading'
 		class='mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl'
 	>
 		{name}
@@ -29,8 +30,14 @@ const { name, specialty, summary, email, socialLinks } = Astro.props
 		<div class='inline-flex items-center gap-4'>
 			{
 				socialLinks?.map(({ href, text, icon }) => (
-					<a href={href}>
-						<Icon title={text} {...icon} height='2rem' class='' />
+					<a
+						href={href}
+						aria-label={text}
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<Icon aria-hidden='true' {...icon} height='2rem' class='' />
+						<span class='sr-only'>(opens in new tab)</span>
 					</a>
 				))
 			}
