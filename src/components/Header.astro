@@ -18,7 +18,7 @@ const { siteLogo, navLinks } = Astro.props
 	<button
 		type='button'
 		id='menu-button'
-		class='px-1.5 text-neutral sm:hidden'
+		class='px-2.5 py-2.5 text-neutral sm:hidden'
 		aria-expanded='false'
 		aria-controls='main-menu'
 		aria-label='Open navigation menu'
@@ -57,7 +57,12 @@ const { siteLogo, navLinks } = Astro.props
 	const toggleMenu = () => {
 		menu?.classList.toggle('hidden')
 		const isHidden = menu?.classList.contains('hidden')
-		button?.setAttribute('aria-expanded', `${!isHidden}`)
+		const isOpen = !isHidden
+		button?.setAttribute('aria-expanded', `${isOpen}`)
+		button?.setAttribute(
+			'aria-label',
+			isOpen ? 'Close navigation menu' : 'Open navigation menu',
+		)
 	}
 
 	button?.addEventListener('click', toggleMenu)
@@ -73,8 +78,10 @@ const { siteLogo, navLinks } = Astro.props
 					navItems.forEach((item) => {
 						if (item.getAttribute('href') === `#${entry.target.id}`) {
 							item.classList.add('text-white', 'md:after:opacity-100')
+							item.setAttribute('aria-current', 'true')
 						} else {
 							item.classList.remove('text-white', 'md:after:opacity-100')
+							item.removeAttribute('aria-current')
 						}
 					})
 				}

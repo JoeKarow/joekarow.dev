@@ -36,6 +36,7 @@ const ogImgUrl = canonicalURL + socialImage
 		<meta property='og:description' content={description} />
 		<meta property='og:url' content={canonicalURL} />
 		<meta property='og:image' content={ogImgUrl} />
+		<meta property='og:type' content='website' />
 
 		<meta property='twitter:card' content='summary_large_image' />
 		<meta property='twitter:url' content={canonicalURL} />
@@ -46,7 +47,7 @@ const ogImgUrl = canonicalURL + socialImage
 	<body class='bg-black font-sans'>
 		<a
 			href='#main-content'
-			class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white'
+			class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-[#fff] focus:outline-2 focus:outline-offset-2 focus:outline-[#fff]'
 		>
 			Skip to main content
 		</a>

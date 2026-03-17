@@ -40,6 +40,7 @@ export interface ProjectProps {
 	name: string
 	summary: string
 	image: string
+	imageAlt?: string
 	centerImage?: boolean
 	technologies: string[]
 	links?: {

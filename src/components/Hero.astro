@@ -25,7 +25,12 @@ const { name, specialty, summary, email, socialLinks } = Astro.props
 		<a
 			class='inline-flex items-center rounded-full bg-primary px-6 py-4 text-sm leading-5 font-medium text-[#fff]'
 			href={`mailto:${email}`}
-			><Icon name='mdi:email-send-outline' height='2rem' class='pe-2' /> Get in Touch</a
+			><Icon
+				aria-hidden='true'
+				name='mdi:email-send-outline'
+				height='2rem'
+				class='pe-2'
+			/> Get in Touch</a
 		>
 		<div class='inline-flex items-center gap-4'>
 			{
@@ -35,6 +40,7 @@ const { name, specialty, summary, email, socialLinks } = Astro.props
 						aria-label={text}
 						target='_blank'
 						rel='noopener noreferrer'
+						class='p-1.5'
 					>
 						<Icon aria-hidden='true' {...icon} height='2rem' class='' />
 						<span class='sr-only'>(opens in new tab)</span>
