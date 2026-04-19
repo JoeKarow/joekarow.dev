@@ -8,7 +8,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.2
         name: checkout repo
       - name: Website to GIF
         uses: JoeKarow/website-to-gif@main
@@ -25,12 +25,12 @@ jobs:
       #     githubToken: ${{ secrets.GITHUB_TOKEN }}
       #     compressOnly: true
       - name: Get current time
-        uses: josStorer/get-current-time@v2
+        uses: josStorer/get-current-time@v2.1.2
         id: current-time
         with:
           format: YYYYMMDDHHMM
       - name: Create PR
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           add-paths: docs/img/*
           commit-message: 'bot: 🤖 Screenshot GIF'
