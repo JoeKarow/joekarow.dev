@@ -1,7 +1,6 @@
 ---
 import Header from '@components/Header.astro'
-import '@fontsource/be-vietnam-pro'
-import '@fontsource-variable/gabarito'
+import '@fontsource-variable/instrument-sans'
 import { SITE_CONFIG } from '@config'
 import Footer from '@components/Footer.astro'
 import Analytics from '@vercel/analytics/astro'
@@ -15,6 +14,7 @@ const {
 	author,
 	socialLinks,
 	socialImage,
+	email,
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = SITE_CONFIG
 
@@ -22,7 +22,7 @@ const ogImgUrl = canonicalURL + socialImage
 ---
 
 <!doctype html>
-<html lang={lang} class='scroll-pt-16 scroll-smooth'>
+<html lang={lang} class='scroll-pt-24 scroll-smooth'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='description' content={description} />
@@ -44,18 +44,23 @@ const ogImgUrl = canonicalURL + socialImage
 		<meta property='twitter:description' content={description} />
 		<meta property='twitter:image' content={ogImgUrl} />
 	</head>
-	<body class='bg-black font-sans'>
+	<body class='bg-bg font-sans text-ink antialiased'>
 		<a
 			href='#main-content'
-			class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-[#fff] focus:outline-2 focus:outline-offset-2 focus:outline-[#fff]'
+			class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-coral focus:px-4 focus:py-2 focus:font-semibold focus:text-bg focus:outline-2 focus:outline-offset-2 focus:outline-ink'
 		>
 			Skip to main content
 		</a>
-		<Header siteLogo={siteLogo} navLinks={navLinks} />
-		<main id='main-content' class='mx-auto max-w-4xl px-5'>
+		<Header
+			siteLogo={siteLogo}
+			author={author}
+			email={email}
+			navLinks={navLinks}
+		/>
+		<main id='main-content' class='mx-auto max-w-[1200px]'>
 			<slot />
 		</main>
-		<Footer author={author} socialLinks={socialLinks} />
+		<Footer email={email} socialLinks={socialLinks} />
 		<Analytics />
 		<SpeedInsights />
 	</body>

@@ -2,15 +2,21 @@
 interface Props {
 	text: string
 	href: string
+	class?: string
+	srOnlyHeading?: boolean
 }
 
-const { text, href } = Astro.props
+const { text, href, class: className, srOnlyHeading = false } = Astro.props
 ---
 
-<section id={href} class='py-24' aria-labelledby={`${href}-heading`}>
+<section id={href} class={className} aria-labelledby={`${href}-heading`}>
 	<h2
 		id={`${href}-heading`}
-		class='mb-14 font-serif text-4xl font-bold tracking-tighter text-white md:text-5xl'
+		class:list={[
+			srOnlyHeading
+				? 'sr-only'
+				: 'mb-7 text-[clamp(2rem,5vw,2.75rem)] leading-tight font-semibold tracking-[-1.5px]',
+		]}
 	>
 		{text}
 	</h2>
