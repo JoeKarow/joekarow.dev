@@ -55,3 +55,17 @@ Prettier with tabs, single quotes, no semicolons. Plugins: `@prettier/plugin-oxc
 - **Runtime versions**: Managed by mise (`bun 1.3.9`, `node 22.22.0`)
 - **Dependency pinning**: `bunfig.toml` sets `exact = true` — no version ranges
 - **Dependency updates**: Renovate (config extends `github>JoeKarow/renovate-config`)
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues on `JoeKarow/joekarow.dev` via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one root `CONTEXT.md` + `docs/adr/` (created lazily). See `docs/agents/domain.md`.
