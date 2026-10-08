@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
-@theme {
+/* inline: utilities get literal values, so third-party CSS (e.g. a browser
+   extension) redefining a generic name like --color-bg can't restyle the site */
+@theme inline {
 	--font-sans: 'Instrument Sans Variable', system-ui, sans-serif;
 
 	--color-bg: #1c1917;
@@ -19,7 +21,7 @@
 }
 
 :focus-visible {
-	outline: 2px solid var(--color-coral);
+	outline: 2px solid --theme(--color-coral);
 	outline-offset: 2px;
 }
 
