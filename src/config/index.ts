@@ -156,7 +156,7 @@ export const SITE_CONTENT: SiteContent = {
 			],
 			links: [
 				{
-					href: 'https://github.com/Virtual-Coffee/virtualcoffee.io/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow',
+					href: 'https://github.com/search?q=org%3AVirtual-Coffee+author%3AJoeKarow+is%3Apr&type=pullrequests&s=updated&o=desc',
 					text: 'View Contributions',
 				},
 				{ href: 'https://virtualcoffee.io/', text: 'Virtual Coffee' },
