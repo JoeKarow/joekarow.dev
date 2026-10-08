@@ -20,7 +20,7 @@ const [featured, ...others] = projects
 		{featured && (
 			<article class='flex flex-col overflow-hidden rounded-[28px] bg-surface'>
 				<Image
-					class={`mx-3.5 mt-3.5 aspect-[736/483] rounded-[18px] bg-placeholder object-cover ${featured.centerImage ? 'object-center' : 'object-left-top'}`}
+					class={`mx-3.5 mt-3.5 aspect-[736/483] h-auto w-[calc(100%-1.75rem)] rounded-[18px] bg-placeholder object-cover ${featured.centerImage ? 'object-center' : 'object-left-top'}`}
 					src={featured.image}
 					alt={featured.imageAlt ?? `${featured.name} screenshot`}
 					width='736'
