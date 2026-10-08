@@ -1,71 +1,29 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Single-page Astro portfolio (`/` only) deployed to Vercel. Pure `.astro` components styled with Tailwind; no UI framework, no content collections, no test suite. `bun run lint` (Prettier check + `astro check`) is the verification step.
 
-## Commands
+## Where things live
 
-- `bun dev` — Start dev server
-- `bun run build` — Type-check (`astro check`) then build
-- `bun preview` — Preview production build
-- `bun run format` — Format all files with Prettier
-- `bun run lint` — Check formatting and run type-checking
-- `bunx prettier --write <file>` — Format a single file
+- **Content**: all site copy is in `src/config/index.ts` (`SITE_CONFIG` for metadata/nav, `SITE_CONTENT` for page sections). Edit content there; `src/pages/index.astro` spreads it into section components as props.
+- **Components**: `src/components/*.astro`, props typed by interfaces in `src/types/index.ts`. Wrap each content section in `Section.astro`.
+- **Layout**: `src/layouts/Layout.astro` owns the HTML shell, meta, fonts, header, footer and Vercel analytics, importing `SITE_CONFIG` from `@config` directly.
+- **Design tokens**: the `@theme` block in `src/styles/global.css` is the entire Tailwind v4 config (loaded via `@tailwindcss/vite`); add colors, fonts and animations there.
 
-No test suite is configured.
+## Conventions
 
-## Architecture
-
-Single-page Astro 5 portfolio site deployed to Vercel. One route (`/`), no content collections, no client-side framework.
-
-### Data flow
-
-All site content lives in `src/config/index.ts` as typed TypeScript objects (`SITE_CONFIG` for metadata/nav, `SITE_CONTENT` for page sections). `src/pages/index.astro` imports these and spreads them as props into section components. To update any content, edit `src/config/index.ts`.
-
-### Components
-
-All components are pure `.astro` files in `src/components/`. Each declares typed props (interfaces from `src/types/index.ts`) and uses Tailwind classes directly. `Section.astro` is a reusable wrapper used by every content section. There is no React, Vue, or other UI framework.
-
-### Layout
-
-Single layout at `src/layouts/Layout.astro` — handles the HTML shell, meta tags, fonts, header, footer, and Vercel analytics. It reads config directly from `@config` (not via props).
-
-## Path Aliases
-
-Always use these (defined in `tsconfig.json`):
-
-- `@components/*` → `src/components/*`
-- `@layouts/*` → `src/layouts/*`
-- `@icons/*` → `src/icons/*`
-- `@types` → `src/types/index.ts`
-- `@config` → `src/config/index.ts`
-
-## Styling
-
-Tailwind CSS v4 via `@tailwindcss/vite` plugin (not PostCSS). All design tokens (colors, fonts, animations) are defined in `src/styles/global.css` using the `@theme` block. No separate Tailwind config file.
-
-Key tokens: `--color-primary` (blue), `--color-black` (dark bg), `--color-white` (off-white text), `--color-neutral` (slate). Fonts: Be Vietnam Pro (sans), Gabarito Variable (serif/headings).
-
-## Formatting
-
-Prettier with tabs, single quotes, no semicolons. Plugins: `@prettier/plugin-oxc`, `prettier-plugin-astro`, `prettier-plugin-tailwindcss`. Tailwind class sorting uses `src/styles/global.css` as the stylesheet reference.
-
-## Tooling
-
-- **Package manager**: Bun (pinned in `package.json` and `mise.toml`)
-- **Runtime versions**: Managed by mise (`bun 1.3.9`, `node 22.22.0`)
-- **Dependency pinning**: `bunfig.toml` sets `exact = true` — no version ranges
-- **Dependency updates**: Renovate (config extends `github>JoeKarow/renovate-config`)
+- Import through the `tsconfig.json` path aliases (`@components/*`, `@config`, …).
+- Add dependencies at exact versions (`bunfig.toml` sets `exact = true`); Renovate owns upgrades.
 
 ## Agent skills
 
 ### Issue tracker
 
-Issues are tracked in GitHub Issues on `JoeKarow/joekarow.dev` via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+GitHub Issues via `gh`. Read `docs/agents/issue-tracker.md` before creating, reading, labelling or closing an issue.
 
 ### Triage labels
 
-Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+Read `docs/agents/triage-labels.md` before applying a triage label.
 
 ### Domain docs
 
-Single-context: one root `CONTEXT.md` + `docs/adr/` (created lazily). See `docs/agents/domain.md`.
+Single-context. Read `docs/agents/domain.md` before exploring the codebase for a spec, design or refactor.
