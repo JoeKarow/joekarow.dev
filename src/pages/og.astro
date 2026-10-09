@@ -1,0 +1,41 @@
+---
+// Source for public/preview.png: screenshot this page at 1200×630.
+import { Image } from 'astro:assets'
+import '@fontsource-variable/instrument-sans'
+import { SITE_CONFIG, SITE_CONTENT } from '@config'
+import '../styles/global.css'
+
+const { author, canonicalURL, lang, siteLogo } = SITE_CONFIG
+const { headline } = SITE_CONTENT.hero
+const domain = canonicalURL ? new URL(canonicalURL).host : ''
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='robots' content='noindex, nofollow' />
+		<meta name='viewport' content='width=1200' />
+		<title>{author} — social card</title>
+	</head>
+	<body class='m-0 bg-bg font-sans text-ink antialiased'>
+		<main class='grid h-[630px] w-[1200px] grid-cols-[minmax(0,1fr)_380px] items-center gap-16 px-[72px]'>
+			<div class='flex flex-col gap-6'>
+				<p class='text-2xl font-semibold text-ink-muted'>{author}</p>
+				<h1 class='text-[76px] leading-[.98] font-semibold tracking-[-0.035em] text-balance text-coral'>
+					{headline}
+				</h1>
+				<p class='text-2xl font-medium text-ink-subtle'>{domain}</p>
+			</div>
+			<div class='flex aspect-square rotate-3 items-end justify-center overflow-hidden rounded-[40px] bg-coral'>
+				<Image
+					class='mb-[6%] w-4/5'
+					src={siteLogo}
+					width='400'
+					height='400'
+					alt=''
+				/>
+			</div>
+		</main>
+	</body>
+</html>

@@ -4,7 +4,7 @@
 
 <div align='center'>
 
-![Scrolling page preview](docs/img/screenshot.webp)
+![Homepage preview](docs/img/screenshot.webp)
 
 </div>
 

@@ -8,64 +8,86 @@ interface Props {
 }
 
 const { projects } = Astro.props
+const [featured, ...others] = projects
 ---
 
-<Section text='Featured Work & Contributions' href='projects'>
-	{projects.map(
-		(
-			{ name, summary, image, imageAlt, links, technologies, centerImage },
-			index,
-		) => {
-			const top = 98 + index * 40
-
-			return (
-				<div
-					style={`top: ${top}px;`}
-					class='sticky mb-12 rounded-2xl border border-neutral/20 bg-black'
-				>
-					<div class="bg-difu relative z-[1] grid h-auto w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
-						<div class='px-6 pt-12'>
-							<h3 class='mb-5 font-serif text-3xl font-medium text-primary'>
-								{name}
-							</h3>
-							<p class='text-base text-neutral'>{summary}</p>
-							{technologies && (
-								<div class='mt-2'>
-									<div class='flex flex-wrap gap-1'>
-										{technologies.map((tech) => (
-											<span class='inline-block rounded bg-white/10 px-2 py-1 text-xs font-medium text-white'>
-												{tech}
-											</span>
-										))}
-									</div>
-								</div>
-							)}
-							<div class='flex gap-5 pt-5 text-white'>
-								{links?.map(({ href, text }) => (
-									<a
-										href={href}
-										target='_blank'
-										rel='noopener noreferrer'
-										class='after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline'
-									>
-										{text}
-										<span class='sr-only'>(opens in new tab)</span>
-									</a>
-								))}
-							</div>
-						</div>
-						<div class='flex items-end justify-end overflow-hidden'>
-							<Image
-								class={`h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none ${centerImage ? 'object-center' : 'object-left-top'} sm:h-[85%] sm:w-full`}
-								src={image}
-								alt={imageAlt ?? name}
-								width='736'
-								height='483'
-							/>
-						</div>
+<Section
+	text='Things I’ve built & helped build'
+	href='projects'
+	class='px-4 pt-20 pb-10 md:px-14'
+>
+	<div class='grid gap-5 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]'>
+		{featured && (
+			<article class='flex flex-col overflow-hidden rounded-[28px] bg-surface'>
+				<Image
+					class={`mx-3.5 mt-3.5 aspect-[736/483] h-auto w-[calc(100%-1.75rem)] rounded-[18px] bg-placeholder object-cover ${featured.centerImage ? 'object-center' : 'object-left-top'}`}
+					src={featured.image}
+					alt={featured.imageAlt ?? `${featured.name} screenshot`}
+					width='736'
+					height='483'
+				/>
+				<div class='flex flex-col gap-3 px-6 pt-6 pb-7 md:px-7 md:pb-[30px]'>
+					{featured.label && (
+						<p class='text-[13px] font-semibold text-coral'>{featured.label}</p>
+					)}
+					<h3 class='text-[34px] leading-tight font-semibold tracking-[-1px]'>
+						{featured.name}
+					</h3>
+					<p class='text-[17px] leading-[1.55] text-ink-muted'>
+						{featured.summary}
+					</p>
+					<ul class='flex flex-wrap gap-1.5' role='list'>
+						{featured.technologies.map((tech) => (
+							<li class='rounded-full bg-chip px-[11px] py-[5px] text-[13px] text-chip-ink'>
+								{tech}
+							</li>
+						))}
+					</ul>
+					<div class='mt-1 flex flex-wrap gap-x-[18px] gap-y-2 text-[15px] font-semibold text-coral'>
+						{featured.links?.map(({ href, text }) => (
+							<a
+								href={href}
+								target='_blank'
+								rel='noopener noreferrer'
+								class='-my-1.5 inline-block py-1.5'
+							>
+								{text} <span class='sr-only'>for {featured.name}</span>
+								<span aria-hidden='true'>→</span>
+								<span class='sr-only'>(opens in new tab)</span>
+							</a>
+						))}
 					</div>
 				</div>
-			)
-		},
-	)}
+			</article>
+		)}
+		<div class='flex flex-col gap-5'>
+			{others.map(({ name, summary, image, imageAlt, links }) => (
+				<article class='grid flex-1 grid-cols-[80px_minmax(0,1fr)] gap-4 rounded-3xl bg-surface p-3.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-[18px]'>
+					<Image
+						class='aspect-square h-auto w-full rounded-[14px] bg-placeholder object-cover'
+						src={image}
+						alt={imageAlt ?? `${name} logo`}
+						width='112'
+						height='112'
+					/>
+					<div class='flex flex-col gap-1.5 py-1 pr-2'>
+						<h3 class='text-xl font-semibold tracking-[-0.3px]'>{name}</h3>
+						<p class='text-sm leading-normal text-ink-muted'>{summary}</p>
+						{links?.[0] && (
+							<a
+								href={links[0].href}
+								target='_blank'
+								rel='noopener noreferrer'
+								class='-my-1.5 self-start py-1.5 text-sm font-semibold text-coral'
+							>
+								{links[0].text} <span class='sr-only'>for {name}</span>
+								<span aria-hidden='true'>→</span>
+								<span class='sr-only'>(opens in new tab)</span>
+							</a>
+						)}
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
 </Section>

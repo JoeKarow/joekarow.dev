@@ -2,32 +2,21 @@ import type { SiteConfig, SiteContent } from '../types'
 export const SITE_CONFIG: SiteConfig = {
 	title: 'Joe Karow — Full Stack Software Engineer',
 	author: 'Joe Karow',
+	email: 'hello@joekarow.dev',
 	description:
-		'Full-Stack Software Engineer specializing in mission-driven technology solutions. I build scalable web applications that create meaningful social impact, with expertise in JavaScript/TypeScript, Python, and modern CI/CD practices.',
+		'Full stack TypeScript engineer building software for people doing good work. Formerly first full-time engineer at InReach; now open to hands-on engineering roles.',
 	lang: 'en',
 	siteLogo: '/memoji.webp',
 	navLinks: [
-		{ text: 'About', href: '#about' },
+		{ text: 'Hi', href: '#hero' },
 		{ text: 'Experience', href: '#experience' },
-		{ text: 'Featured Work', href: '#projects' },
-		{ text: 'Technical Skills', href: '#skills' },
+		{ text: 'Projects', href: '#projects' },
+		{ text: 'Skills', href: '#skills' },
 	],
 	socialLinks: [
-		{
-			text: 'Bluesky',
-			href: 'https://bsky.app/profile/joekarow.dev',
-			icon: { name: 'logos:bluesky' },
-		},
-		{
-			text: 'LinkedIn',
-			href: 'https://www.linkedin.com/in/jkarow/',
-			icon: { name: 'logos:linkedin-icon' },
-		},
-		{
-			text: 'Github',
-			href: 'https://github.com/JoeKarow',
-			icon: { name: 'logos:github-icon' },
-		},
+		{ text: 'LinkedIn', href: 'https://www.linkedin.com/in/jkarow/' },
+		{ text: 'GitHub', href: 'https://github.com/JoeKarow' },
+		{ text: 'Bluesky', href: 'https://bsky.app/profile/joekarow.dev' },
 	],
 	socialImage: '/preview.png',
 	canonicalURL: 'https://joekarow.dev',
@@ -35,106 +24,118 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const SITE_CONTENT: SiteContent = {
 	hero: {
-		name: 'Joe Karow',
-		specialty: 'Full Stack Software Engineer',
-		summary: SITE_CONFIG.description,
-		// "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-		email: 'hello@joekarow.dev',
-		socialLinks: SITE_CONFIG.socialLinks,
+		status:
+			'Looking for a hands-on engineering role · Alexandria, VA or remote',
+		greeting: 'Hi, I’m Joe.',
+		headline: 'I build software for people doing good work.',
+		summary:
+			'I’m a full stack TypeScript engineer. I was the first full-time engineer at InReach, a nonprofit LGBTQ+ resource platform, where I rebuilt the legacy application end to end: architecture, API, database, CI/CD and a translation pipeline covering 10+ languages.',
+		image: '/memoji.webp',
 	},
 	skills: {
-		title: 'Technical Skills',
+		title: 'Skills',
 		categories: [
 			{
-				name: 'Languages & Frameworks',
+				name: 'Languages',
+				skills: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+			},
+			{
+				name: 'Frontend',
 				skills: [
-					'JavaScript/TypeScript',
-					'Python',
-					'Go',
-					'Swift',
-					'Kotlin',
 					'React',
 					'Next.js',
-					'Node.js',
+					'Mantine',
 					'HTML',
 					'CSS',
+					'Web accessibility',
+					'Internationalization (i18next, Crowdin)',
 				],
 			},
 			{
-				name: 'Databases & Tools',
+				name: 'Backend and data',
+				skills: ['Node.js', 'tRPC', 'PostgreSQL', 'Prisma', 'Drizzle', 'Redis'],
+			},
+			{
+				name: 'Infrastructure and tooling',
 				skills: [
-					'PostgreSQL',
-					'MongoDB',
-					'SQL',
-					'AWS',
+					'AWS (Cognito, Lambda)',
+					'Cloudflare Workers (Durable Objects)',
+					'Vercel',
+					'Netlify',
+					'GitHub Actions',
 					'CI/CD',
-					'Web Accessibility',
-					'Git',
-					'RESTful APIs',
+					'Sentry',
+					'Turborepo',
 				],
 			},
 			{
-				name: 'Development Focus',
-				skills: [
-					'Full-stack web applications',
-					'Mobile app development',
-					'Data integration & automation',
-					'Process optimization',
-				],
+				name: 'Also worked with',
+				skills: ['Go', 'Swift', 'Kotlin', 'MongoDB'],
 			},
 		],
 	},
 	experience: [
 		{
-			company: 'InReach',
-			position: 'Lead Engineer',
-			startDate: 'September 2022',
-			endDate: 'October 2024',
+			company: 'Virtual Coffee',
+			position: 'Technical Maintainer (volunteer)',
+			startDate: 'Sep 2026',
+			endDate: 'present',
 			summary: [
-				"Led the complete rewrite of the organization's legacy application, transitioning it from an outdated codebase to a modern, scalable architecture.",
-				'Designed and implemented CI/CD pipelines for code quality enforcement, automated deployments, database migrations, and translation workflow synchronization.',
-				'Enhanced language access by utilizing Crowdin for crowdsourced translations from volunteers to ensure accurate, inclusive, and culturally competent language support.',
-				'Updated iOS & Android apps to comply with latest Apple/Google standards.',
-				'Managed cloud resources to minimize waste expense without sacrificing performance.',
-				'Managed team of interns, volunteers, and contractors using agile workflows.',
+				'Moved membership applications and four public forms from Airtable to PostgreSQL, and community events from Craft CMS to Google Calendar.',
+				'Built vc-bots, a Cloudflare Worker running the community’s Slack and Zoom automation: a co-working room with live presence, event announcements from Google Calendar, a weekly host availability check-in and new-member welcomes.',
+				'Built an admin panel with user management, section-level permissions and Slack sign-in.',
+				'Added Sentry error monitoring, a Vitest suite with a CI test job, CodeQL scanning and edge-level bot blocking.',
+				'Upgraded the codebase to Next.js 16 and TypeScript 7.',
 			],
 		},
 		{
-			company: '100Devs',
-			position: 'Full Stack Engineer',
-			startDate: 'January 2022',
-			endDate: 'September 2022',
+			company: 'InReach',
+			position: 'Lead Software Engineer',
+			startDate: 'Sep 2022',
+			endDate: 'Oct 2024',
 			summary: [
-				'Collaborated with a team of community taught developers to build modern and responsive web applications.',
-				'Offered peer mentorship by sharing technical knowledge and best practices with team members through regular pair programming sessions and collaborative code reviews.',
+				'Led the ground-up rewrite as a TypeScript monorepo (Next.js, tRPC, Prisma, PostgreSQL), migrating listing data from MongoDB. About 2,600 commits and 297 merged pull requests in two years.',
+				'Built the internationalization architecture from scratch with i18next and Crowdin, taking listing translations from hand-typed Spanish fields to 10+ languages with human-reviewed translations and Redis caching.',
+				'Designed a taxonomy of 122 typed listing attributes in 13 categories with shared translation templates, so facts like age eligibility are translated once per language instead of once per listing.',
+				'Designed GitHub Actions pipelines for linting, tests, CodeQL security scanning, visual regression checks, database migrations, deployments and translation sync.',
+			],
+		},
+		{
+			company: 'JoeKarow.dev',
+			position: 'Independent work',
+			startDate: 'Aug 2021',
+			endDate: 'present',
+			summary: [
+				'Web applications and static sites for small and medium-sized business clients.',
+				'Shopify development for an agency across two client storefronts: theme customization and cleanup, custom interactive storefront features, landing pages.',
 			],
 		},
 		{
 			company: 'Hilton',
 			position: 'Director of Finance',
-			startDate: 'August 2015',
-			endDate: 'August 2021',
+			startDate: 'Aug 2015',
+			endDate: 'Aug 2021',
 			summary: [
-				'Finance lead for various hotels, including the Embassy Suites Old Town Alexandria, Hilton Garden Inn Alexandria, Washington Hilton, and Hilton Crystal City. Managed diverse teams, implementing Agile processes to deliver workflow efficiency while ensuring a profitable, productive hotel operation.',
-				'Developed a daily sales tax reconciliation application that integrated data from multiple sources (POS, property management, and financial systems), normalizing and adapting disparate data formats to reduce monthly sales tax return filing time from 4+ hours down to under 30 minutes, while also reducing sales tax collection variances to less than 0.5% on $10m monthly sales volume. This application was celebrated as a best practice and shared at a conference attended by all hotel finance leaders in North & South America.',
-				'Developed multiple smaller tools/applications to reduce month-end financial closing time from 60+ working hours to less than 24 working hours.',
+				'Built a daily sales tax reconciliation application combining POS, property management and financial system data. It cut monthly filing from 4+ hours to under 30 minutes and held variances under 0.5% on $10M in monthly sales.',
+				'Built further tools that reduced month-end close from 60+ working hours to under 24.',
 			],
 		},
 	],
 	projects: [
 		{
 			name: 'InReach App',
+			label: 'Lead project · 2022 to 2024',
 			summary:
-				'InReach is the world’s first open source verified LGBTQ+ resource platform.',
+				'An open source, verified resource platform for the LGBTQ+ community. I led the ground-up rewrite as a TypeScript monorepo and built its translation pipeline for 10+ languages.',
 			technologies: [
-				'JavaScript/TypeScript',
-				'React',
+				'TypeScript',
 				'Next.js',
-				'Node.js',
+				'tRPC',
+				'Prisma',
 				'PostgreSQL',
-				'CI/CD',
+				'i18next',
+				'Crowdin',
 			],
-
 			links: [
 				{ href: 'https://app.inreach.org', text: 'Live App' },
 				{ href: 'https://github.com/weareinreach/InReach', text: 'Source' },
@@ -142,13 +143,20 @@ export const SITE_CONTENT: SiteContent = {
 			image: '/inreach-app.png',
 		},
 		{
-			name: 'VirtualCoffee.io',
+			name: 'Virtual Coffee',
 			summary:
-				'Contributed calendar integration and TypeScript migration features to Virtual Coffee open source community platform.',
-			technologies: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'MDX'],
+				'Open source Next.js site and Slack automation for a developer community of more than 1,200 members. As volunteer Technical Maintainer I moved the site’s data to PostgreSQL, built an admin panel, and wrote the Cloudflare Worker that runs the community’s Slack and Zoom bots.',
+			technologies: [
+				'Next.js',
+				'TypeScript',
+				'PostgreSQL',
+				'Cloudflare Workers',
+				'Slack API',
+				'Zoom API',
+			],
 			links: [
 				{
-					href: 'https://github.com/Virtual-Coffee/virtualcoffee.io/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow',
+					href: 'https://github.com/search?q=org%3AVirtual-Coffee+author%3AJoeKarow+is%3Apr&type=pullrequests&s=updated&o=desc',
 					text: 'View Contributions',
 				},
 				{ href: 'https://virtualcoffee.io/', text: 'Virtual Coffee' },
@@ -159,8 +167,8 @@ export const SITE_CONTENT: SiteContent = {
 		{
 			name: '1Password CLI Plugins',
 			summary:
-				'Contributed 1Password CLI plugins for PostgreSQL, Crowdin, and Sentry CLI integration.',
-			technologies: ['Go', 'CLI Development', 'PostgreSQL', 'REST APIs'],
+				'Picked up Go to land three merged contributions: pg_dump and pg_restore support for PostgreSQL, a new Crowdin CLI plugin, and added Sentry configuration.',
+			technologies: ['Go', 'CLI Development', 'PostgreSQL'],
 			links: [
 				{
 					href: 'https://github.com/1Password/shell-plugins/issues?q=sort:updated-desc%20%20is:pr%20author:JoeKarow',
@@ -175,10 +183,10 @@ export const SITE_CONTENT: SiteContent = {
 			centerImage: true,
 		},
 		{
-			name: 'Civic Tech DC',
+			name: 'CIB Mango Tree',
 			summary:
-				'Open source contributor to Civic Tech DC projects focused on civic engagement and government transparency tools.',
-			technologies: ['Python', 'CLI Development', 'Civic APIs', 'GUI Planning'],
+				'For Civic Tech DC, built a shared Unicode tokenizer service for the tool’s analyzers, with fixes and tests for multilingual edge cases such as Korean text. The tool helps researchers and journalists detect coordinated inauthentic behavior in social media data.',
+			technologies: ['Python', 'Unicode', 'Testing'],
 			links: [
 				{
 					href: 'https://github.com/civictechdc/mango-tango-cli/issues?q=sort:updated-desc%20is:pr%20author:JoeKarow',
@@ -190,16 +198,4 @@ export const SITE_CONTENT: SiteContent = {
 			centerImage: true,
 		},
 	],
-	about: {
-		description: [
-			`
-      Hi, I’m Joe Karow!
-      Ever since my childhood Tandy 1000RL from Radio Shack, computers have been my playground. My early adventures included attempting to install Windows 2.0 (thwarted by a corrupted disk #4) and successfully dual-booting Slackware Linux with Windows 95 without catastrophe—a genuine achievement in 1996!`,
-			`My first web creation? A "Java Enhanced" Simpsons fan site hosted on AOL, gloriously overloaded with unnecessary java applets and too many GIFs. (I even earned my first copyright notice from Sun Microsystems for borrowing Duke, the Java mascot.)`,
-			`After building a successful career in the hotel industry, I returned to development and discovered my calling in mission-driven technology. Whether it's modernizing platforms for the LGBTQ+ community at InReach or contributing to civic tech projects, I love using code to solve real problems for real people. That same excitement I felt building that awful Simpsons site? It's even stronger now when the work creates meaningful impact.`,
-		],
-		image: '/memoji.webp',
-	},
 }
-
-// #5755ff

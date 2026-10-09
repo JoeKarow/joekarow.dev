@@ -9,31 +9,38 @@ interface Props {
 const { experience } = Astro.props
 ---
 
-<Section text='Work Experience' href='experience'>
-	{experience.map(({ company, position, startDate, endDate, summary }) => (
-		<div class='mb-10'>
-			<h3 class='mb-1.5 font-serif text-2xl font-semibold text-white'>
-				{company}
-			</h3>
-			<div class='flex flex-col items-start pb-5'>
-				<h4 class='mb-0.5 font-serif text-2xl font-medium text-primary'>
-					{position}
-				</h4>
-				<span class='pb-[2px] text-sm text-white/70'>
-					{startDate} — {endDate}
-				</span>
-			</div>
-			{Array.isArray(summary) ? (
-				<ul class='list-none' role='list'>
-					{summary.map((log) => (
-						<li class='relative mb-3 pl-8 text-base text-neutral before:absolute before:top-1 before:left-0 before:content-[url(/check.svg)]'>
-							{log}
-						</li>
-					))}
-				</ul>
-			) : (
-				<p class='text-base text-neutral'>{summary}</p>
-			)}
-		</div>
-	))}
+<Section
+	text='Experience'
+	href='experience'
+	class='mx-4 rounded-[32px] bg-surface p-6 md:mx-14 md:p-12'
+>
+	<div>
+		{experience.map(({ company, position, startDate, endDate, summary }) => (
+			<article class='grid gap-3 border-t border-line py-7 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8'>
+				<p class='text-sm font-semibold text-coral md:pt-1.5'>
+					{startDate} to {endDate}
+				</p>
+				<div>
+					<h3 class='flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5'>
+						<span class='text-[26px] font-semibold tracking-[-0.5px]'>
+							{company}
+						</span>
+						<span class='sr-only'>, </span>
+						<span class='text-base font-medium text-ink-muted'>{position}</span>
+					</h3>
+					<ul class='mt-3.5 flex flex-col gap-2' role='list'>
+						{summary.map((item) => (
+							<li class='grid grid-cols-[20px_minmax(0,1fr)] text-[15px] leading-[1.55] text-ink-subtle'>
+								<span
+									class='mt-[9px] size-1.5 rounded-full bg-dot'
+									aria-hidden='true'
+								/>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</article>
+		))}
+	</div>
 </Section>
