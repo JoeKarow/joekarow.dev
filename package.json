@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.10",
-		"@astrojs/vercel": "11.0.13",
+		"@astrojs/vercel": "11.0.14",
 		"@fontsource-variable/instrument-sans": "5.3.0",
 		"@tailwindcss/vite": "4.3.3",
 		"@vercel/analytics": "2.0.1",
@@ -24,9 +24,9 @@
 	},
 	"devDependencies": {
 		"@prettier/plugin-oxc": "0.2.3",
-		"prettier": "3.9.9",
-		"prettier-plugin-astro": "1.1.0",
+		"prettier": "3.9.10",
+		"prettier-plugin-astro": "1.1.1",
 		"prettier-plugin-tailwindcss": "0.8.1"
 	},
-	"packageManager": "bun@1.4.2"
+	"packageManager": "bun@1.4.3"
 }
