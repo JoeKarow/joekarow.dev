@@ -52,7 +52,7 @@ const { prop1, prop2 } = Astro.props as <ComponentName>Props
 ## Conventions
 
 - Use path aliases: `@components/*`, `@types`, `@config`, `@icons/*`, `@layouts/*`
-- Design tokens are in `src/styles/global.css` (`--color-primary`, `--color-black`, `--color-white`, `--color-neutral`)
-- Fonts: Be Vietnam Pro (sans), Gabarito Variable (serif/headings)
+- Design tokens are in `src/styles/global.css` (`bg`, `surface`, `line`, `ink`, `ink-muted`, `coral`, …)
+- Font: Instrument Sans Variable (`font-sans`)
 - No client-side JavaScript frameworks — pure `.astro` components only
 - Format with Prettier after creation: `bunx prettier --write <file>`

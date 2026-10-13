@@ -5,55 +5,73 @@ import type { HeaderProps } from '@types'
 
 type Props = HeaderProps
 
-const { siteLogo, navLinks } = Astro.props
+const { author, email, siteLogo, navLinks } = Astro.props
 ---
 
-<header class='sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6'>
-	<a href='/' aria-label='Joe Karow — home'>
-		<Image class='rounded-full' src={siteLogo} width='45' height='45' alt='' />
-	</a>
+<header class='sticky top-0 z-50 bg-bg'>
+	<div class='relative mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-4 md:px-14 md:py-[22px]'>
+		<a
+			href='/'
+			class='flex items-center gap-3 text-base font-semibold hover:no-underline'
+		>
+			<Image
+				class='size-10 rounded-full bg-surface-2 object-cover'
+				src={siteLogo}
+				width='40'
+				height='40'
+				alt=''
+			/>
+			<span class='max-[359px]:sr-only'>{author}</span>
+		</a>
 
-	<button
-		type='button'
-		id='menu-button'
-		class='px-2.5 py-2.5 text-neutral sm:hidden'
-		aria-expanded='false'
-		aria-controls='main-menu'
-		aria-label='Open navigation menu'
-	>
-		<Menu />
-	</button>
+		<nav
+			class='absolute top-full right-4 hidden rounded-2xl border border-line bg-surface p-2 md:static md:border-0 md:block md:rounded-full md:p-1.5'
+			id='main-menu'
+			aria-label='Primary navigation'
+		>
+			<ul class='flex flex-col gap-1.5 md:flex-row'>
+				{navLinks.map((link) => (
+					<li>
+						<a
+							class='nav-item block rounded-full px-4 py-2 text-[15px] text-ink-muted transition-colors hover:text-ink'
+							href={link.href}
+						>
+							{link.text}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
 
-	<nav
-		class='absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0'
-		id='main-menu'
-		aria-label='Primary navigation'
-	>
-		<ul class='gap-2 sm:flex'>
-			{navLinks.map((link) => (
-				<li class='relative'>
-					<a
-						class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
-						href={link.href}
-					>
-						{link.text}
-					</a>
-				</li>
-			))}
-		</ul>
-	</nav>
+		<div class='flex items-center gap-2'>
+			<a
+				href={`mailto:${email}`}
+				class='rounded-full bg-coral px-5 py-[11px] text-[15px] font-semibold whitespace-nowrap text-bg'
+			>
+				Say hello
+			</a>
+			<button
+				type='button'
+				id='menu-button'
+				class='rounded-full p-2.5 text-ink-muted hover:text-ink md:hidden'
+				aria-expanded='false'
+				aria-controls='main-menu'
+				aria-label='Open navigation menu'
+			>
+				<Menu />
+			</button>
+		</div>
+	</div>
 </header>
 
 <script>
 	// Toggle mobile menu
 	const button = document.querySelector('#menu-button')
 	const menu = document.querySelector('#main-menu')
-	const navItems = document.querySelectorAll('#main-menu > ul > li > a')
+	const navItems = document.querySelectorAll('#main-menu a')
 
-	const toggleMenu = () => {
-		menu?.classList.toggle('hidden')
-		const isHidden = menu?.classList.contains('hidden')
-		const isOpen = !isHidden
+	const setMenuOpen = (isOpen: boolean) => {
+		menu?.classList.toggle('hidden', !isOpen)
 		button?.setAttribute('aria-expanded', `${isOpen}`)
 		button?.setAttribute(
 			'aria-label',
@@ -61,56 +79,48 @@ const { siteLogo, navLinks } = Astro.props
 		)
 	}
 
-	button?.addEventListener('click', toggleMenu)
-	navItems.forEach((item) => {
-		item?.addEventListener('click', toggleMenu)
+	const isMenuOpen = () => !(menu?.classList.contains('hidden') ?? true)
+
+	button?.addEventListener('click', () => setMenuOpen(!isMenuOpen()))
+	document.addEventListener('keydown', (event) => {
+		if (event.key !== 'Escape' || !isMenuOpen()) return
+		setMenuOpen(false)
+		;(button as HTMLElement | null)?.focus()
+	})
+	document.addEventListener('click', (event) => {
+		const target = event.target as Node
+		if (isMenuOpen() && !menu?.contains(target) && !button?.contains(target))
+			setMenuOpen(false)
 	})
 
-	// Update navigation based on scroll position with Intersection Observer
+	const setCurrent = (id: string) => {
+		navItems.forEach((item) => {
+			const isActive = item.getAttribute('href') === `#${id}`
+			item.classList.toggle('bg-chip', isActive)
+			item.classList.toggle('text-ink', isActive)
+			if (isActive) item.setAttribute('aria-current', 'location')
+			else item.removeAttribute('aria-current')
+		})
+	}
+
+	navItems.forEach((item) => {
+		item.addEventListener('click', () => {
+			setMenuOpen(false)
+			setCurrent(item.getAttribute('href')?.slice(1) ?? '')
+		})
+	})
+
+	// Highlight the nav pill for the section crossing a band near the top of the
+	// viewport (high enough that the short final section still reaches it)
+	const sections = document.querySelectorAll('main section[id]')
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					navItems.forEach((item) => {
-						if (item.getAttribute('href') === `#${entry.target.id}`) {
-							item.classList.add('text-white', 'md:after:opacity-100')
-							item.setAttribute('aria-current', 'true')
-						} else {
-							item.classList.remove('text-white', 'md:after:opacity-100')
-							item.removeAttribute('aria-current')
-						}
-					})
-				}
+				if (entry.isIntersecting) setCurrent(entry.target.id)
 			})
 		},
-		{ threshold: 0.25 },
+		{ rootMargin: '-20% 0px -75% 0px' },
 	)
 
-	document.querySelectorAll('section').forEach((section) => {
-		observer.observe(section)
-	})
-
-	// Cleanup observer
-	document.onvisibilitychange = () => {
-		if (document.visibilityState === 'hidden') {
-			observer.disconnect()
-		} else {
-			document.querySelectorAll('section').forEach((section) => {
-				observer.observe(section)
-			})
-		}
-	}
+	sections.forEach((section) => observer.observe(section))
 </script>
-
-<style>
-	header {
-		animation-timeline: scroll();
-		animation-range: 0 650px;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		header {
-			animation: none;
-		}
-	}
-</style>

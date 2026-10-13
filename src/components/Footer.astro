@@ -1,36 +1,40 @@
 ---
 import type { SiteConfig } from '@types'
-import { Icon } from 'astro-iconify'
 
-type Props = Pick<SiteConfig, 'author' | 'socialLinks'>
+type Props = Pick<SiteConfig, 'email' | 'socialLinks'>
 
-const { author, socialLinks } = Astro.props
-const currentYear = new Date().getFullYear()
+const { email, socialLinks } = Astro.props
 ---
 
-<footer class='w-full border-t border-neutral/20 px-5 pt-5 pb-8 text-center text-white'>
-	<nav aria-label='Social links'>
-		<ul class='mb-5 flex flex-wrap justify-center gap-x-5 text-xs'>
-			{socialLinks.map(({ text, href, icon }) => (
-				<li class='relative'>
-					<a
-						href={href}
-						target='_blank'
-						rel='noopener noreferrer'
-						class='inline-flex items-center px-4 py-3 hover:text-white'
-					>
-						{!!icon && (
-							<Icon aria-hidden='true' height='1.5rem' class='px-2' {...icon} />
-						)}
-						{text}
-						<span class='sr-only'>(opens in new tab)</span>
-					</a>
-				</li>
-			))}
-		</ul>
-	</nav>
-	<p class='text-xs'>
-		{author} © {currentYear}.{' '}
-		<span class='text-neutral'>Designed & Developed by</span> Moisés Machuca
-	</p>
+<footer class='mx-auto max-w-[1200px] px-4 pb-4 md:px-14 md:pb-14'>
+	<div class='flex flex-col gap-8 rounded-[32px] bg-coral p-8 text-bg md:flex-row md:items-end md:justify-between md:gap-10 md:p-14'>
+		<div>
+			<h2 class='text-[clamp(2.25rem,6vw,3.25rem)] leading-none font-semibold tracking-[-2px]'>
+				Let’s work together <span aria-hidden='true'>→</span>
+			</h2>
+			<a
+				href={`mailto:${email}`}
+				class='mt-3.5 inline-block text-[22px] font-semibold focus-visible:outline-bg'
+			>
+				{email}
+			</a>
+		</div>
+		<nav aria-label='Social links'>
+			<ul class='flex flex-wrap gap-2.5 text-[15px] font-semibold' role='list'>
+				{socialLinks.map(({ text, href }) => (
+					<li>
+						<a
+							href={href}
+							target='_blank'
+							rel='noopener noreferrer'
+							class='inline-block rounded-full bg-bg px-[18px] py-3 text-ink focus-visible:outline-bg'
+						>
+							{text}
+							<span class='sr-only'>(opens in new tab)</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+	</div>
 </footer>

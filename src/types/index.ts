@@ -2,7 +2,6 @@ export interface SiteConfig extends HeaderProps {
 	title: string
 	description: string
 	lang: string
-	author: string
 	socialLinks: SocialLinksProps[]
 	socialImage: string
 	canonicalURL?: string
@@ -10,22 +9,20 @@ export interface SiteConfig extends HeaderProps {
 export interface SocialLinksProps {
 	text: string
 	href: string
-	icon?: { name: string }
 }
 export interface SiteContent {
 	hero: HeroProps
 	skills: SkillsProps
 	experience: ExperienceProps[]
 	projects: ProjectProps[]
-	about: AboutProps
 }
 
 export interface HeroProps {
-	name: string
-	specialty: string
+	status: string
+	greeting: string
+	headline: string
 	summary: string
-	email: string
-	socialLinks?: SocialLinksProps[]
+	image: string
 }
 
 export interface ExperienceProps {
@@ -33,7 +30,7 @@ export interface ExperienceProps {
 	position: string
 	startDate: string
 	endDate: string
-	summary: string | string[]
+	summary: string[]
 }
 
 export interface ProjectProps {
@@ -42,16 +39,13 @@ export interface ProjectProps {
 	image: string
 	imageAlt?: string
 	centerImage?: boolean
+	/** Eyebrow shown above the featured (first) project's name. */
+	label?: string
 	technologies: string[]
 	links?: {
 		href: string
 		text: string
 	}[]
-}
-
-export interface AboutProps {
-	description: string[]
-	image: string
 }
 
 export interface SkillsProps {
@@ -63,6 +57,8 @@ export interface SkillsProps {
 }
 
 export interface HeaderProps {
+	author: string
+	email: string
 	siteLogo: string
 	navLinks: { text: string; href: string }[]
 }

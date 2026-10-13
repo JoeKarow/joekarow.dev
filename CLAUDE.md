@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Single-page Astro portfolio (`/` only) deployed to Vercel. Pure `.astro` components styled with Tailwind; no UI framework, no content collections, no test suite. `bun run lint` (Prettier check + `astro check`) is the verification step.
+Single-page Astro portfolio (`/`, plus a `noindex` `/og` card that is the source for `public/preview.png`) deployed to Vercel. Pure `.astro` components styled with Tailwind; no UI framework, no content collections, no test suite. `bun run lint` (Prettier check + `astro check`) is the verification step.
 
 ## Where things live
 
